@@ -5,7 +5,7 @@ const Mockups = () => {
                 src="https://raw.githubusercontent.com/CarlosSebastianLorenzo/MyTinerary/master/public/homeMock.png"
                 alt="myTinerary Home Page"/>
             <img style={{width:"100%", objectFit:"contain", borderRadius:"25px"}}
-                src="https://raw.githubusercontent.com/CarlosSebastianLorenzo/MyTinerary/master/public/darkModeMock.png"
+                src="https://raw.githubusercontent.com/CarlosSebastianLorenzo/MyTinerary/master/public/darkmodeMock.png"
                 alt="myTinerary Home Page Dark Mode"/>
             <img style={{width:"100%", objectFit:"contain", borderRadius:"25px"}}
                 src="https://raw.githubusercontent.com/CarlosSebastianLorenzo/MyTinerary/master/public/citiesSearchMock.png"
