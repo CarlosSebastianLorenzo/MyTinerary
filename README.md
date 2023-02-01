@@ -11,7 +11,7 @@ Given by the mentors:
 
 **[Nicolas Cirulli](https://github.com/NicolasCirulli)**
 
-Click on this link to visit the website: **[my-tinerary-black.vercel.app/](my-tinerary-black.vercel.app/)**
+Click on this link to visit the website: **[my-tinerary-black.vercel.app/](https://my-tinerary-black.vercel.app/)**
 
 
 ![My Tinerary Home Page](./public/homeMock.png)
