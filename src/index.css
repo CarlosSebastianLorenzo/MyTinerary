@@ -4,31 +4,47 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+:root{
+    /*LIGHT*/
+    --light-bg-color: #ddd;
+    --light-text-color: #111;
+    --light-primary-color: #044;
+    --light-secondary-color: #066;
+    --light-brightness: 100%;
+    /*DARK*/
+    --dark-bg-color: #212;
+    --dark-text-color: #ddd;
+    --dark-primary-color: #044;
+    --dark-secondary-color: #066;
+    --dark-brightness: 150%;
+}
 @media (prefers-color-scheme: light){
     :root{
-        --bg-color: #ddd;
-        --text-color: #111;
-        --primary-color: #044;
-        --secondary-color: #066;
-        --toastify-color-success: #044 !important;
+        --bg-color: var(--light-bg-color);
+        --text-color: var(--light-text-color);
+        --primary-color: var(--light-primary-color);
+        --secondary-color: var(--light-secondary-color);
+        --toastify-color-success: var(--light-primary-color) !important;
         --toastify-color-error: #fd6584 !important;
+        --brightness: var(--light-brightness)
     }
 }
 
 @media (prefers-color-scheme: dark){
     :root{
-        --bg-color: #111;
-        --text-color: #ddd;
-        --primary-color: #0bb;
-        --secondary-color: #044;
-        --toastify-color-success: #0bb !important;
+        --bg-color: var(--dark-bg-color);
+        --text-color: var(--dark-text-color);
+        --primary-color: var(--dark-primary-color);
+        --secondary-color: var(--dark-secondary-color);
+        --toastify-color-success: var(--dark-primary-color) !important;
         --toastify-color-error: #fd6584 !important;
+        --brightness: var(--dark-brightness)
     }
 }
 /* SELECTION*/
 *::selection{
-    background-color: #111;
-    color: #ddd;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 /*SCROLLBAR*/
 ::-webkit-scrollbar{
@@ -86,12 +102,14 @@ div:has(input[type="text"], input[type="password"]) label{
     border-radius: 25px;
     padding-right: 1em;
     padding-left: 1em;
+    color: #111;
 }
 input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + label,
 input[type="password"]:focus + label, input[type="password"]:not(:placeholder-shown) + label {
     translate: -.5rem -1.8rem;
     color: var(--primary-color);
     font-weight: bolder;
+    filter:brightness(var(--brightness));
 }
 .eye{
     color: var(--primary-color);
@@ -166,6 +184,7 @@ body{
     background: var(--bg-color);
     color: var(--text-color);
     position: relative;
+    transition: 1s ease;
 }
 body::before{
     content: '';
@@ -179,6 +198,7 @@ body::before{
 }
 .acent{
     color: var(--primary-color);
+    filter:brightness(var(--brightness));
     font-style: italic;
 }
 
@@ -481,6 +501,7 @@ a:has(.card):hover{
     transition: .3s ease-in-out;
 }
 .card:hover{
+    color: #ddd;
     box-shadow: 4px 4px 14px var(--primary-color);
 }
 .card div:first-child{
@@ -725,7 +746,6 @@ a:has(.card):hover{
 .view-more{
     display: flex;
     align-items: center;
-    color: #fff;
     border-radius: 50px;
     cursor: pointer;
     padding-left: 2rem;
@@ -742,7 +762,7 @@ a:has(.card):hover{
     padding: .2rem;
     height: 2.5rem;
     padding-left: .2rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     transition: .1s ease;
 }
 .view-more:hover{

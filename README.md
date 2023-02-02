@@ -11,13 +11,18 @@ Given by the mentors:
 
 **[Nicolas Cirulli](https://github.com/NicolasCirulli)**
 
-Click on this link to visit the website: **[https://carlossebastianlorenzo.github.io/MyTinerary/](https://carlossebastianlorenzo.github.io/MyTinerary/#/)**
+Click on this link to visit the website: **[my-tinerary-black.vercel.app/](my-tinerary-black.vercel.app/)**
 
 
-![My Tinerary Home Page](./public/MyTineraryHome.png)
+![My Tinerary Home Page](./public/homeMock.png)
 
-![Error 404 Page](./public/Error404Page.png)
+![Dark Mode](./public/darkmodeMock.png)
 
-![Under Construction Page](./public/underConstruction.png)
+![Log In and Sign Out](./public/loginSignOutMock.png)
 
-![Responsive Home Page](./public/responsiveHomePage.png)
+![Search and filter Cities](./public/citiesSearchMock.png)
+
+![Responsive](./public/responsiveMock.png)
+
+![Interactive Itineraries](./public/itinerariesMock.png)
+

@@ -48,7 +48,7 @@ const SignIn = () => {
     }
 
     return (
-        <main style={{height: '100vh', overflowX: "hidden"}}>
+        <main style={{height: '100vh'}}>
             <section style={{ alignItems: 'center', flexDirection: 'column', gap: 0}}>
                 <div style={{display: 'flex', height: '1.5em', alignItems: 'center', gap: '.5em'}}>
                     <img style={{maxHeight: '100%'}}src="https://logomaker.designfreelogoonline.com/media/productdesigner/logo/resized/000931_plane_flying_logo_design_free_online_travel_logo_maker-06.png" alt="logo" />

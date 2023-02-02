@@ -3,14 +3,23 @@ import { useState, useEffect } from "react"
 import { NavLink, Link, useNavigate } from "react-router-dom"
 import BurguerMenu from "./BurguerMenu"
 import {FaUser} from "react-icons/fa";
+import {MdDarkMode, MdLightMode} from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { userLogOut } from "../Redux/Actions/UserAction.js";
+import toggleDarkMode from "../Utils/darkMode.js";
 
 function Header() {
     const user = useSelector(store => store.userSignUpReducer.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [navOpen, setNavOpen] = useState(false)
+    const [isDark, setIsDark] = useState(false)
+    
+    useEffect(()  => {
+        const getRoot = getComputedStyle(document.documentElement);
+        const isDarkMode = getRoot.getPropertyValue('--dark-bg-color') === getRoot.getPropertyValue('--bg-color')
+        setIsDark(isDarkMode)
+    },[])
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -32,6 +41,11 @@ function Header() {
             dispatch(userLogOut())
         }
         navigate('/register/signin')
+    }
+
+    const handleDarkMode = () => {
+        setIsDark(!isDark)
+        toggleDarkMode();
     }
 
     return (
@@ -60,6 +74,13 @@ function Header() {
                         <button onClick={logIn}><FaUser/>Login</button>
                         </li>
                     }
+                    <li>
+                        {isDark ?
+                        <MdLightMode onClick={handleDarkMode} size="1.2em" className="icon"/>
+                        :
+                        <MdDarkMode onClick={handleDarkMode} size="1.2em" className="icon"/>
+                        }
+                    </li>
                 </ul>
             </nav>
             <BurguerMenu condition={navOpen} fn={()=>setNavOpen(!navOpen)}/>
