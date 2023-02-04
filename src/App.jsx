@@ -1,4 +1,4 @@
-import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Cities from './pages/Cities';
 import Main from './layouts/Main';
 import Hero from './pages/Hero';
@@ -11,7 +11,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { logInWithToken } from './Redux/Actions/UserAction.js';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   { 
     path: '/',
     element: <Main/>,
