@@ -58,17 +58,20 @@ input[type="text"], input[type="password"], select{
 select+label{
     display: none;
 }
+select option:checked {
+    background: var(--primary-color);
+    color: #ddd;
+}
+option:hover{
+    background: var(--primary-color);
+    color: #ddd;
+}
 select{
     padding-left: 1.5em;
     font-size: 1em;
     position: relative;
 }
-select:active option {
-    background-color: var(--primary-color);
-    color: var(--text-color)
-}
-
-select::-ms-expand {
+select::-webkit-scrollbar{
     display: none;
 }
 div:has(input[type="text"], input[type="password"]){

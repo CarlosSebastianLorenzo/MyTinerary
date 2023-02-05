@@ -17,6 +17,7 @@ const SignUp = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const repeatPassword = useRef()
+    const countrySelected = useRef()
     const [countries, setCountries] = useState([])
     const [showPassword, setShowPassword] = useState(false)
     const [userData, setUserData] = useState({
@@ -44,7 +45,12 @@ const SignUp = () => {
             toast.error("Passwords must be the same")
             return 
         }
-        const actionResult = await dispatch(userSignUp({...userData}));
+        let data = userData
+        if (countrySelected.current.value != "noCountry" ){
+            data = {...userData, country: countrySelected.current.value}
+            console.log(data)
+        }
+        const actionResult = await dispatch(userSignUp({...data}));
         const result = await unwrapResult(actionResult)
         if(result.token) {navigate('/')}
     }
@@ -117,11 +123,11 @@ const SignUp = () => {
                         <label htmlFor="photo">Profile Photo URL</label>
                     </div>
                     <div>
-                        <select name="selectCountry">
+                        <select ref={countrySelected} name="selectCountry">
                             {countries.map((country, indexMap)=>{
                                 return <option key={indexMap} value={country}>{country}</option>
                             })}
-                            <option value="noCountry" selected>Select a Country</option>
+                            <option value="noCountry" defaultValue>Select a Country</option>
                         </select>
                         <label htmlFor="selectCountry">Select a Country</label>
                     </div>
