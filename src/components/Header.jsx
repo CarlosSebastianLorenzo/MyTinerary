@@ -28,7 +28,9 @@ function Header() {
 
     const logIn = async () => {
         setNavOpen(!navOpen)
-        await dispatch(userLogOut())
+        if (user && Object.keys(user).length !== 0) {
+            dispatch(userLogOut())
+        }
         navigate('/register/signin')
     }
 

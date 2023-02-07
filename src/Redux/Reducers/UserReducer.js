@@ -73,6 +73,7 @@ export const userSignUpReducer = createReducer(initialState, (builder)=> {
         })
         .addCase(userLogOut, (store)=>{
             localSto.remove("token")
+            toast.success('You have been successfully logged out');   
             return {
                 ...store,
                 user: {},
