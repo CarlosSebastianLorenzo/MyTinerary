@@ -4,17 +4,20 @@ import { LuLogIn } from "react-icons/lu";
 import { FaEyeSlash, FaEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import { userSignUp } from "../Redux/Actions/UserAction.js";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const repeatPassword = useRef()
+
     const [showPassword, setShowPassword] = useState(false)
     const [userData, setUserData] = useState({
         email: "",
@@ -29,6 +32,10 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (userData.password !== repeatPassword.current.value) { 
+            toast.error("Passwords must be the same")
+            return 
+        }
         const actionResult = await dispatch(userSignUp({...userData}));
         const result = await unwrapResult(actionResult)
         if(result.token) {navigate('/')}
@@ -80,11 +87,12 @@ const SignUp = () => {
                     </div>
                     <div>
                         <input name="repeatPassword"
+                            ref={repeatPassword}
                             type={showPassword ? "text" : "password"}
                             placeholder=" " 
                             autoComplete="off"
                             />
-                        <label htmlFor="repeatPassword">Repeat Password</label>
+                        <label htmlFor="repeatPassword">Confirm Password</label>
                         {showPassword ? <FaEyeSlash className="eye" onClick={()=>setShowPassword(!showPassword)}/> 
                         : <FaEye className="eye" onClick={()=>setShowPassword(!showPassword)}/>}
                     </div>

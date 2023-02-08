@@ -589,6 +589,7 @@ a:has(.card):hover{
     text-align: center;
     /* align-items: center; */
     gap: .5rem;
+    padding-bottom: .5em;
 }
 .itinerary>div:first-child{
     height: 18rem;
@@ -694,9 +695,6 @@ a:has(.card):hover{
 .expanded::-webkit-scrollbar{
     width: .3em;
 }
-.expanded::-webkit-scrollbar-track{
-    cursor: pointer;
-}
 .collapsed{
     opacity: 0;
     height: 0;
@@ -734,6 +732,7 @@ a:has(.card):hover{
     border-bottom: solid .2px var(--secondary-color);
     border-right: solid .2px var(--secondary-color);
 }
+/*Activities*/
 .activity{
     display: flex;
     gap: 1em;
@@ -751,6 +750,56 @@ a:has(.card):hover{
     object-fit: cover;
     object-position: center center;
 }
+/*COMMENTS*/
+.commentsContainer{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+    padding-right: 2em;
+    gap: .5em;
+    overflow: scroll;
+    height: fit-content;
+    max-height: 8em;
+}
+.commentsContainer::-webkit-scrollbar{
+    width: .3em;
+}
+.commentsContainer::-webkit-scrollbar-corner{
+    display: none;
+}
+.comment{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1em;
+}
+.comment>img{
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+.comment>div:has(p){
+    display: flex;
+    align-items: flex-start;
+    text-align: start;
+    flex-direction: column;
+}
+
+.commentTextArea {
+    border-radius: 5px 5px 3em 3em;
+    resize:none ;
+    border: none;
+    background: #fff;
+    padding: .5em;
+    outline: 0px;
+    text-transform: none;
+    width: 95%;
+}
+.commentTextArea::-webkit-scrollbar{
+    display: none;
+}
+
 /*FOOTER*/
 
 footer{
