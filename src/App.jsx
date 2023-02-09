@@ -55,7 +55,7 @@ function App() {
   dispatch(logInWithToken())
 
   return (
-      <GoogleOAuthProvider clientId="129309573868-7v794qd0cdflnus0r6er5u0vrkpdib1b.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
         <RouterProvider router={router}/>
       </GoogleOAuthProvider>
   )

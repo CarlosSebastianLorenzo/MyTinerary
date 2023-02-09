@@ -29,7 +29,7 @@ const SignIn = () => {
             })
             const data = {
                 email: infoUser.data.email,
-                password: infoUser.data.family_name+"@1V",
+                password: infoUser.data.family_name+import.meta.env.VITE_HASH_PASSWORD
             }
             const actionResult = await dispatch(userSignIn(data))
             const result = await unwrapResult(actionResult)

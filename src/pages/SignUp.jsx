@@ -43,7 +43,7 @@ const SignUp = () => {
             })
             const data = {
                 email: infoUser.data.email,
-                password: infoUser.data.family_name+"@1V",
+                password: infoUser.data.family_name+import.meta.env.VITE_HASH_PASSWORD,
                 fullName: infoUser.data.name,
                 photo: infoUser.data.picture
             }
