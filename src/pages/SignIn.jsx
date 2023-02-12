@@ -9,6 +9,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { useDispatch } from "react-redux";
 import { userSignIn } from "../Redux/Actions/UserAction.js";
 import { useRef, useState } from "react";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const SignIn = () => {
 
@@ -30,18 +31,20 @@ const SignIn = () => {
                 email: infoUser.data.email,
                 password: infoUser.data.family_name+"@1V",
             }
-            dispatch(userSignIn(data))
-            navigate('/')
+            const actionResult = await dispatch(userSignIn(data))
+            const result = await unwrapResult(actionResult)
+            if(result.token) {navigate('/')}
         }
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(userSignIn({
+        const actionResult = await dispatch(userSignIn({
             email: email.current.value,
             password: password.current.value
         }))
-        navigate('/')
+        const result = await unwrapResult(actionResult)
+        if(result.token) {navigate('/')}
     }
 
     return (
@@ -60,6 +63,7 @@ const SignIn = () => {
                     <div>
                         <input ref={password} 
                         type={showPassword ? "text" : "password"}
+                        autoComplete="on"
                         name="password" placeholder=" "/>
                         <label htmlFor="password">Password</label>
                         {showPassword ? <FaEyeSlash className="eye" onClick={()=>setShowPassword(!showPassword)} /> 
@@ -75,7 +79,7 @@ const SignIn = () => {
                 <p className="link">Don't have an account? <Link to='/signup' className="acent link">Sign Up</Link></p>
             </section>
             <aside style={{minHeight: '10vh', height: 'fitContent'}}>
-                <img style={{maxWidth: '90vw'}} src={manLogin} alt="man select map" />
+                <img style={{maxWidth: '100%', zIndex: '-1'}} src={manLogin} alt="man select map" />
             </aside>
         </main>
     )

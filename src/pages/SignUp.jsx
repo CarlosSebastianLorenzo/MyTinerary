@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 import { userSignUp } from "../Redux/Actions/UserAction.js";
 import { useDispatch } from "react-redux";
+import { unwrapResult } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -28,10 +29,11 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(userSignUp({...userData}))
-        navigate('/')
+        const actionResult = await dispatch(userSignUp({...userData}));
+        const result = await unwrapResult(actionResult)
+        if(result.token) {navigate('/')}
     }
-
+    
     const login = useGoogleLogin ({
         onSuccess: async tokenResponse => {
             const infoUser = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
@@ -45,8 +47,9 @@ const SignUp = () => {
                 fullName: infoUser.data.name,
                 photo: infoUser.data.picture
             }
-            dispatch(userSignUp(data))
-            navigate('/')
+            const actionResult = await dispatch(userSignUp(data))
+            const result = await unwrapResult(actionResult)
+            if(result.token) {navigate('/')}
         }
     });
 
@@ -68,7 +71,8 @@ const SignUp = () => {
                     <div>
                         <input name="password"
                             type={showPassword ? "text" : "password"}
-                            placeholder=" " value={userData.password} 
+                            placeholder=" " autoComplete="on"
+                            value={userData.password}
                             onChange={(e)=>handleChangeUserData(e)}/>
                         <label htmlFor="password">Password</label>
                         {showPassword ? <FaEyeSlash className="eye" onClick={()=>setShowPassword(!showPassword)} /> 
@@ -78,6 +82,7 @@ const SignUp = () => {
                         <input name="repeatPassword"
                             type={showPassword ? "text" : "password"}
                             placeholder=" " 
+                            autoComplete="off"
                             />
                         <label htmlFor="repeatPassword">Repeat Password</label>
                         {showPassword ? <FaEyeSlash className="eye" onClick={()=>setShowPassword(!showPassword)}/> 
