@@ -1,11 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { readAllCities } from "../Actions/CitiesAction.js";
+import { readAllCities, readOneCity } from "../Actions/CitiesAction.js";
 
 const initialState = {
-    cities : []
+    cities : [],
+    city : {}
 }
 
-const readAllCitiesReducer = createReducer(initialState, (builder)=> {
+export const readAllCitiesReducer = createReducer(initialState, (builder)=> {
     builder
         .addCase(readAllCities.fulfilled, (store,action)=>{
             const newCities = { ...store, cities: action.payload}
@@ -13,4 +14,10 @@ const readAllCitiesReducer = createReducer(initialState, (builder)=> {
         })
 })
 
-export default readAllCitiesReducer
+export const readOneCityReducer = createReducer(initialState, (builder)=> {
+    builder
+        .addCase(readOneCity.fulfilled, (store,action)=>{
+            const newCity = { ...store, city: action.payload}
+            return newCity
+        })
+})

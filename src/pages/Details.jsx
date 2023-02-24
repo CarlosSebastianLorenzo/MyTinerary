@@ -1,24 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { apiURL } from "../Utils/apiURL"
 import { FaPersonWalkingLuggage } from "react-icons/fa6";
 import UnderConstruction from "../components/UnderConstruction"
+import { useSelector, useDispatch } from "react-redux"
+import { readOneCity } from "../Redux/Actions/CitiesAction.js"
 
 
 const Details = () => {
     const params = useParams()
     const navigate = useNavigate()
-    let [infoCity, setInfoCity] = useState({})
+    const dispatch = useDispatch()
+    const infoCity = useSelector(store => store.readOneCityReducer.city)
 
-    useEffect(() => {
-        document.title = params.id + " - MyTinerary"
+    useEffect(()=>{
+        dispatch(readOneCity(params.id))
     },[])
 
     useEffect(() => {
-        fetch(apiURL+"cities/"+params.id)
-        .then(response => response.json())
-        .then(data => setInfoCity(data.response))
+        document.title = params.id + " - MyTinerary"
     },[])
 
     return (
