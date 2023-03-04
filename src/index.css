@@ -179,7 +179,44 @@ nav>ul, footer ul{
 nav>ul>li>button{
     padding: .5rem;
 }
-
+/*Burguer Menu*/
+.burguer{
+    display:none;
+    z-index: 4;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 3rem;
+}
+.burguer>span{
+    width: 3rem;
+    height: .5rem;
+    background: #fff;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    transition: 1s ease-in-out;
+    box-shadow: 1px 1px 1px var(--primary-color);
+}
+.burguer>span:nth-child(2){
+    top: 1rem;
+}
+.burguer>span:last-child{
+    top: 2rem;
+}
+.burguerTop{
+    transform: translateY(1rem) rotate(135deg);
+}
+.burguerMiddle{
+    transform: rotate(45deg);
+}
+.burguerBottom{
+    transform: translateY(-1rem) rotate(-135deg);
+}
 /*MAIN*/
 
 main{
@@ -505,15 +542,59 @@ footer{
 /*MEDIA QUERY*/
 
 @media (max-width: 1024px) {
+    body{
+        padding: 0;
+    }
+    /*HEADER*/
     header{
-        flex-direction: column;
-        height: 15vh;
+        align-items: flex-start;
+        height: 7.5rem;
+        padding-top: .5rem;
         padding-bottom: 2em;
     }
     nav{
-        flex-direction: column;
-        width: 0;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--secondary-color);
+        transition: 2s ease;
+        border-radius: 0 0 250% 0;
+        overflow: hidden;
     }
+    .navHidden{
+        height: 0;
+    }
+    .navShown{
+        height: 100vh;
+    }
+    nav>ul{
+        padding-top: 10rem;
+        flex-direction: column;
+        transition: 3 ease;
+    }
+    nav a{
+        color: #fff;
+        font-weight: bolder;
+        font-size: 3rem;
+    }
+    nav>ul>li>button{
+        font-weight: bolder;
+        font-size: 3rem;
+        padding-right: 1rem;
+        padding-left: 2rem;
+        gap: 2rem;
+        vertical-align: middle;
+    }
+    nav>ul>li>button>img{
+        scale: 2.5;
+    }
+    .burguer{
+        display: flex;
+    }
+    /*MAIN*/
     main{
         min-height: 75vh;
         flex-direction: column;
