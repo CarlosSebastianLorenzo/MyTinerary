@@ -33,11 +33,15 @@ const Details = () => {
                     <p>Fundation: <span className="acent">{infoCity.fundation}</span></p>
                     <p>Featured Locations: <span className="acent">{infoCity.featuredLocation}</span></p>
                 </span>
+
                 <p>{infoCity.description}</p>
+                <div style={{backgroundImage: `url(${infoCity.photo})`}}>
                 <button onClick={()=>navigate(-1)}>
                     Go Back to Cities
                     <img src={personWalkingLuggage} alt="personWalkingLuggage" />
                 </button>
+                </div>
+
         <UnderConstruction>
         
         </UnderConstruction>

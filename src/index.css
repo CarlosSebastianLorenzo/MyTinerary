@@ -437,7 +437,7 @@ a:has(.card):hover{
     align-content: center;
     justify-content: center;
     align-items: center;
-    background: #ffffff50;
+    /* background: #ffffff50; */
     backdrop-filter: blur(50px);
     border-radius: 25px;
     gap: 1rem;
@@ -478,11 +478,17 @@ a:has(.card):hover{
     word-spacing: 4px;
 
 }
-.details>button{
+.details>div:nth-child(4){
+    width: 100%;
+    height: 30vh;
+    border-radius: 0 0 25px 25px;
+}
+.details button{
     width: 20rem;
     padding: .5rem;
     text-align: center;
     font-size: x-large;
+    backdrop-filter: blur(150px);
 }
 
 /*FOOTER*/
