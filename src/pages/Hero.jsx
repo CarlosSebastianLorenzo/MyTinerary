@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Carousel from "../layouts/Carousel"
 import CitiesArray from "../Utils/citiesMockup"
 import planeDeparture from "/planedeparture.svg"
@@ -7,6 +8,10 @@ import { Link } from "react-router-dom";
 const fourCities = splitArray(CitiesArray, 4)
 
 export default function Hero() {
+
+    useEffect(() =>{
+        document.title = "MyTinerary"
+    }),[]
 
     return (
         <main>

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CitiesArray from "../Utils/citiesMockup"
 import { Link } from "react-router-dom"
 import girlwalking from "/girlwalking.svg"
@@ -8,6 +8,10 @@ import Card from "../components/Card"
 const Cities = () => {
 
     let [search, setSearch] = useState("")
+
+    useEffect(() => {
+        document.title = "Cities - MyTinerary"
+    }),[]
 
     const filterCities = CitiesArray.filter(c => c.city.toLowerCase().trim().startsWith(search.toLowerCase().trim()))
 

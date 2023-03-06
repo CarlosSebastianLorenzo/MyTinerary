@@ -1,8 +1,14 @@
+import { useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import personWalkingLuggage from "/personwalkingluggage.svg"
 import manlost from "/manlost.svg"
 
 const Error404 = () => {
+
+    useEffect(() =>{
+        document.title = "Error 404: MyTinerary"
+    }),[]
+
     return (
         <main>
         <section style={{ alignItems: 'center', flexDirection: 'column', gap: '1rem' }}>
