@@ -12,7 +12,7 @@ const Cities = () => {
                 <img src={personWalkingLuggage} alt="personWalkingLuggage" /></button></NavLink>
         </section>
         <aside style={{minHeight: '10vh', height: '20vh'}}>
-            <img style={{maxWidth: '90vw', maxHeight: '60vh'}} src={underconstruction} alt="girl walking" />
+            <img style={{maxWidth: '90vw', maxHeight: '60vh'}} src={underconstruction} alt="workers construction house" />
         </aside>
         </main>
     )

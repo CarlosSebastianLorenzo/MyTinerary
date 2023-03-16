@@ -11,7 +11,7 @@ Given by the mentors:
 
 **[Nicolas Cirulli](https://github.com/NicolasCirulli)**
 
-Click on this link to visit the website: **[https://carlossebastianlorenzo.github.io/MyTinerary/](https://carlossebastianlorenzo.github.io/MyTinerary/)**
+Click on this link to visit the website: **[https://carlossebastianlorenzo.github.io/MyTinerary/](https://carlossebastianlorenzo.github.io/MyTinerary/#/)**
 
 
 ![My Tinerary Home Page](./public/MyTineraryHome.png)
