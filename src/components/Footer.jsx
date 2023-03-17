@@ -11,7 +11,7 @@ export default function Footer() {
                 <NavLink to="/cities">Cities</NavLink>
                 </li>
             </ul>
-            <p className="copyright">Copyright 2022© Lorenzo Carlos Sebastian - All Rights Reserved</p>
+            <p className="copyright">Copyright 2023© Lorenzo Carlos Sebastian - All Rights Reserved</p>
         </footer>
     )
 }

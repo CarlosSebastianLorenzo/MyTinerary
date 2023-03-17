@@ -14,7 +14,7 @@ export default function Hero() {
                 <h1>Find <span className='acent'>your perfect </span> trip,</h1>
                 <h3>designed by insiders who know and love their cities!</h3>
                 <Link to='cities'>
-                    <button>Start Now <img src={planeDeparture} alt="" /></button>
+                    <button>Start Now <img src={planeDeparture} alt="planeDeparture" /></button>
                 </Link>
             </section>
             <aside>
