@@ -26,9 +26,23 @@
     text-decoration: none;
     color: var(--text-color);
     transition: .5s ease;
+    position: relative;
+    font-size:larger;
 }
 * a:hover{
     color: var(--primary-color);
+}
+* a:not(:has(button, img))::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: .1rem;
+    bottom: 0;
+    background: var(--primary-color);
+    transition: 1s ease;
+}
+* a:hover::before{
+    width: 100%;
 }
 * ul{
     list-style: none;
