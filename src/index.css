@@ -47,9 +47,8 @@ button{
     gap: .5rem;
 }
 button:hover{
-    background-color: var(--bg-color);
+    background-color: #00000010;
     color: var(--primary-color);
-    fill: var(--primary-color);
 }
 button:active{
     scale: .95;
