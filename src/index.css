@@ -125,16 +125,50 @@ main>section>a>button{
     align-self: flex-start;
     font-size: 1.5rem;
 }
+main>aside{
+    min-width: 50%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /*CLASS COMPONENTS*/
 .heroImg{
     width: 100%;
     height: 100%;
+    background: var(--primary-color);
+    position: relative;
+}
+.heroImg>img{
+    width: 100%;
+    height: 100%;
     max-height: 80vh;
     object-fit:cover;
     border-radius: 5px;
-    background: var(--primary-color);
     box-shadow: 4px 4px 4px #33333360;
+    position: relative;
+}
+.heroImg::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #000, transparent 50%);
+    z-index: 1;
+}
+.heroImg>h3, .heroImg>h5{
+    color: #ddd;
+    position: absolute;
+    bottom: 1.5em;
+    right: 50%;
+    translate: 50% -50%;
+    z-index: 2;
+    filter: drop-shadow(2px 2px 2px #000)
+}
+.heroImg>h5{
+    bottom: .5em;
 }
 .grid{
     min-height: 70vh;
@@ -147,7 +181,7 @@ main>section>a>button{
     "two three"
     "four four";
 }
-.grid>img:nth-child(1){
+.grid>div:nth-child(1){
     grid-area: one;
     animation: translateTop ease-in-out 3s;
 }
@@ -155,7 +189,7 @@ main>section>a>button{
     from { translate: 0em -3em; opacity: 0;}
     to { translate: 0; opacity: 1; }
 }
-.grid>img:nth-child(2){
+.grid>div:nth-child(2){
     grid-area: two;
     animation: translateLeft ease-in-out 2.5s;
 }
@@ -163,7 +197,7 @@ main>section>a>button{
     from { translate: -3em 0em; opacity: 0}
     to { translate: 0; opacity: 1; }
 }
-.grid>img:nth-child(3){
+.grid>div:nth-child(3){
     grid-area: three;
     animation: translateRight ease-in-out 2s;
 }
@@ -171,7 +205,7 @@ main>section>a>button{
     from { translate: 3em 0em; opacity: 0}
     to { translate: 0; opacity: 1;}
 }
-.grid>img:nth-child(4){
+.grid>div:nth-child(4){
     grid-area: four;
     animation: translateBottom ease-in-out 1s;
 }
@@ -236,5 +270,8 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-content: center;
+    }
+    main>section{
+        align-items: center;
     }
 }
