@@ -109,12 +109,14 @@ main>section{
     max-width: 100%;
 }
 main>section>h1{
-    max-width: 30rem;
+    max-width: 20rem;
     font-size: 3rem;
 }
-main>section>p{
-    max-width: 30rem;
-    line-height: 1.5rem;
+main>section>h3{
+    max-width: 20rem;
+    line-height: 2rem;
+    font-style: italic;
+    font-weight: 500;
 }
 main>section>a>button{
     padding: .5rem;
