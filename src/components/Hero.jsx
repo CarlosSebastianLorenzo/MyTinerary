@@ -2,6 +2,7 @@
 import Carousel from "../layouts/Carousel"
 import Cities from "../Utils/citiesMockup"
 import splitArray from "../Utils/splitArray.js";
+import { Link } from "react-router-dom";
 
 const fourCities = splitArray(Cities, 4)
 
@@ -12,7 +13,9 @@ export default function Hero() {
             <section>
                 <h1>Find the <span className='acent'>perfect</span> destination</h1>
                 <p>Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
-                <button>View More</button>
+                <Link to='cities'>
+                    <button>View More</button>
+                </Link>
             </section>
                 <Carousel>
                 {

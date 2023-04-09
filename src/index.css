@@ -116,7 +116,7 @@ main>section>p{
     max-width: 30rem;
     line-height: 1.5rem;
 }
-main>section>button{
+main>section>a>button{
     padding: .5rem;
     padding-left: 5rem;
     padding-right: 5rem;
