@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    min-height: 100vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+/*HEADER*/
+
+header{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav>ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+nav>ul>li>a{
+    text-decoration: none;
+}
+nav>ul>li>button{
+    padding: .5rem;
+}
+nav>ul>li>button:hover{
+    cursor: pointer;
+}
+
+/*MAIN*/
+
+main{
+    min-height: 85vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+main>section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50%;
+    max-width: 50rem;
+}
+main>section>h1{
+    font-size: 3rem;
+}
+main>section>p{
+    max-width: 30rem;
+    line-height: 1.5rem;
+}
+main>section>button{
+    padding: .5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    align-self: flex-start;
+    font-size: 1.5rem;
+}
+.heroImg{
+    width: 50%;
+    height: 40rem;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+/*FOOTER*/
+
+footer{
+    height: 5vh;
+    text-align: center;
+}
