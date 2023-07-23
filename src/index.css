@@ -30,18 +30,15 @@ nav>ul>li>a{
 nav>ul>li>button{
     padding: .5rem;
 }
-nav>ul>li>button:hover{
-    cursor: pointer;
-}
 
 /*MAIN*/
 
 main{
-    min-height: 85vh;
+    min-height: 82vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 2rem;
 }
 main>section{
     display: flex;
@@ -74,6 +71,18 @@ main>section>button{
 /*FOOTER*/
 
 footer{
-    height: 5vh;
+    height: 8vh;
     text-align: center;
+    padding: 1rem;
+}
+
+/*MEDIA QUERY*/
+
+@media (max-width: 750px) {
+    main{
+        flex-direction: column;
+    }
+    .heroImg, main>section{
+        width: 100%;
+    }
 }

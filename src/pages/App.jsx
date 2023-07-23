@@ -1,28 +1,15 @@
+import Header from "../components/Header"
+
 function App() {
 
   return (
     <>
-      <header>
-        <h2>My Tinerary</h2>
-        <nav>
-          <ul>
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">Cities</a>
-            </li>
-            <li>
-              <button>Login</button>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header/>
       <main>
         <section>
           <h1>Find the perfect destination</h1>
           <p>Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
-          <button className="callToAction">View More</button>
+          <button>View More</button>
         </section>
         <img className="heroImg" src="https://img.itinari.com/pages/images/original/58e9ad24-584f-4321-9c5f-5a55e656ac0a-istock-518230906-copia.jpg?ch=DPR&dpr=2.625&w=1600&s=06821398aa6ac7b719cb5e37121240f0" alt="Brazil" />
       </main>
