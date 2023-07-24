@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 function App() {
 
@@ -13,9 +14,7 @@ function App() {
         </section>
         <img className="heroImg" src="https://img.itinari.com/pages/images/original/58e9ad24-584f-4321-9c5f-5a55e656ac0a-istock-518230906-copia.jpg?ch=DPR&dpr=2.625&w=1600&s=06821398aa6ac7b719cb5e37121240f0" alt="Brazil" />
       </main>
-      <footer>
-        <p className="copyright">Copyright 2022© Lorenzo Carlos Sebastian - All Rights Reserved</p>
-      </footer>
+      <Footer/>
     </>
   )
 }
