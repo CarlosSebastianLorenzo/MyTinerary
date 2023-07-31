@@ -32,7 +32,7 @@ export default function Carousel({children}) {
     useEffect(() => {
         let intervalID = setInterval(()=>{
             next();
-        }, 3000)
+        }, 5000)
 
         return () =>{
             clearInterval(intervalID);
