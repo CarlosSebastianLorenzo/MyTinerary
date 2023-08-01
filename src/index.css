@@ -61,11 +61,16 @@ main>section>button{
     align-self: flex-start;
     font-size: 1.5rem;
 }
+
+/*CLASS COMPONENTS*/
 .heroImg{
     width: 50%;
     height: 40rem;
     object-fit: cover;
     border-radius: 25px;
+}
+.icon{
+    
 }
 
 /*FOOTER*/

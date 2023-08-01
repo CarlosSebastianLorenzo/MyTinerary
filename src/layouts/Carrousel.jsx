@@ -1,4 +1,7 @@
 import {useState} from 'react'
+import leftArrow from '/leftarrow.svg'
+import rigthArrow from '/rigtharrow.svg'
+import Icon from './Icon'
 
 export default function Carrousel({children}) {
     const elementsArray = children.map(child => child)
@@ -21,9 +24,9 @@ export default function Carrousel({children}) {
 
     return (
         <>
-            <button onClick={previous}>{"<"}</button>
+            <Icon fn={previous} icon={leftArrow}/>
             {selectedElement}
-            <button onClick={next}>{">"}</button>
+            <Icon fn={next} icon={rigthArrow}/>
         </>
     )
 }

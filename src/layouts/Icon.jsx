@@ -1,8 +1,7 @@
-const Icon = ({icon}) => {
+const Icon = ({icon, fn}) => {
+
     return (
-        <>
-            {icon}
-        </>
+        <img className="icon" onClick={()=> fn()} src={icon}/>
     )
 }
 
