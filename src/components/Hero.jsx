@@ -1,6 +1,9 @@
+import { useEffect } from "react"
 import Carrousel from "../layouts/Carrousel"
+import Cities from "../Utils/citiesMockup"
 
 export default function Hero() {
+
     return (
         <main>
             <section>
@@ -9,10 +12,10 @@ export default function Hero() {
                 <button>View More</button>
             </section>
             <Carrousel>
-            <img className="heroImg" src="https://img.itinari.com/pages/images/original/58e9ad24-584f-4321-9c5f-5a55e656ac0a-istock-518230906-copia.jpg?ch=DPR&dpr=2.625&w=1600&s=06821398aa6ac7b719cb5e37121240f0" alt="Brazil" />
-            <img className="heroImg" src="https://i.im.ge/2022/08/31/OE8zGY.cambodia.png" alt="Brazil" />
-            <img className="heroImg" src="https://i.im.ge/2022/08/31/OE8kcM.baliTemple.png" alt="Brazil" />
-
+            {Cities.map((city,indexMap) => {
+                return <img className="heroImg" loading="eager" key={indexMap} src={city.photo} alt={city.city} />
+                }
+            )}
             </Carrousel>
         </main>
     )

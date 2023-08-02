@@ -4,6 +4,22 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+@media (prefers-color-scheme: light){
+    :root{
+        --bg-color: #ddd;
+        --text-color: #111;
+        --primary-color: #044;
+    }
+}
+
+@media (prefers-color-scheme: light){
+    :root{
+        --bg-color: #111;
+        --text-color: #ddd;
+        --primary-color: #0bb;
+    }
+}
+
 body{
     min-height: 100vh;
     padding-left: 10vw;
@@ -66,11 +82,12 @@ main>section>button{
 .heroImg{
     width: 50%;
     height: 40rem;
-    object-fit: cover;
+    object-fit:cover;
     border-radius: 25px;
+    background: var(--primary-color);
 }
 .icon{
-    
+    cursor: pointer;
 }
 
 /*FOOTER*/
