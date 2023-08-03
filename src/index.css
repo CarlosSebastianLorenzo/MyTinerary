@@ -60,8 +60,6 @@ main>section{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 50%;
-    max-width: 50rem;
 }
 main>section>h1{
     font-size: 3rem;
@@ -80,7 +78,7 @@ main>section>button{
 
 /*CLASS COMPONENTS*/
 .heroImg{
-    width: 50%;
+    max-width: 80%;
     height: 40rem;
     object-fit:cover;
     border-radius: 25px;
@@ -88,6 +86,28 @@ main>section>button{
 }
 .icon{
     cursor: pointer;
+}
+
+    /*Carousel*/
+.slide{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: 2rem;
+}
+.contentSlide{
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.selectors{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
 }
 
 /*FOOTER*/
@@ -103,8 +123,7 @@ footer{
 @media (max-width: 750px) {
     main{
         flex-direction: column;
-    }
-    .heroImg, main>section{
-        width: 100%;
+        justify-content: center;
+        align-content: center;
     }
 }
