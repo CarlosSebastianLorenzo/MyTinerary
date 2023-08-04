@@ -34,6 +34,14 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+header>div{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+header>div>img{
+    height: 100%;
+}
 nav>ul{
     list-style: none;
     display: flex;
@@ -55,13 +63,17 @@ main{
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    padding-top: 1rem;
 }
 main>section{
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 40rem;
+    max-width: 100%;
 }
 main>section>h1{
+    max-width: 30rem;
     font-size: 3rem;
 }
 main>section>p{
@@ -80,6 +92,7 @@ main>section>button{
 .heroImg{
     max-width: 80%;
     height: 40rem;
+    max-height: 80vh;
     object-fit:cover;
     border-radius: 25px;
     background: var(--primary-color);
@@ -113,7 +126,7 @@ main>section>button{
 /*FOOTER*/
 
 footer{
-    height: 8vh;
+    min-height: 8vh;
     text-align: center;
     padding: 1rem;
 }
