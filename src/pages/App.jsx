@@ -1,14 +1,34 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import Hero from "../components/Hero"
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Cities from '../components/Cities';
+import Main from '../layouts/Main';
+import Hero from '../components/Hero';
+import Error404 from '../components/Error404';
+
+const router = createBrowserRouter([
+  { 
+    path: '/',
+    element: <Main/>,
+    children: [
+      {
+        path: '/',
+        element: <Hero />,
+      },
+      { path:'/cities',
+        element: <Cities/>
+      }
+    ]
+  },
+  {
+    path: '*',
+    element: <Error404 />
+  }
+])
 
 function App() {
 
   return (
     <>
-      <Header/>
-      <Hero/>
-      <Footer/>
+      <RouterProvider router={router}/>
     </>
   )
 }
