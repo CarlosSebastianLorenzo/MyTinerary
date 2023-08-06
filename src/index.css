@@ -42,13 +42,14 @@ header>div{
 header>div>img{
     height: 100%;
 }
-nav>ul{
+nav>ul, footer ul{
     list-style: none;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
 }
-nav>ul>li>a{
+nav>ul>li>a, footer a{
     text-decoration: none;
 }
 nav>ul>li>button{
