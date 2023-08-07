@@ -1,8 +1,10 @@
 const Cities = () => {
     return (
-            <h1>
-                UNDER CONSTRUCTION
-            </h1>
+        <main style={{ justifyContent: 'center' }}>
+                <h1>
+                    UNDER CONSTRUCTION
+                </h1>
+        </main>
     )
 }
 

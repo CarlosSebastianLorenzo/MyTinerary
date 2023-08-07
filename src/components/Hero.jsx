@@ -1,6 +1,9 @@
 // import { useEffect } from "react"
 import Carousel from "../layouts/Carousel"
 import Cities from "../Utils/citiesMockup"
+import splitArray from "../Utils/splitArray.js";
+
+const fourCities = splitArray(Cities, 4)
 
 export default function Hero() {
 
@@ -13,10 +16,19 @@ export default function Hero() {
                 <button>View More</button>
             </section>
                 <Carousel>
-                {Cities.map((city,indexMap) => {
-                    return <img className="heroImg" loading="eager" key={indexMap} src={city.photo} alt={city.city} />
-                    }
-                )}
+                {
+                    fourCities.map((array,indexMap)=>{
+                        return <div className="grid" key={indexMap}>
+                            {/* {array.map((item)=>{ */}
+                                <img className="heroImg" loading="eager" src={array[0].photo} alt={array[0].city} />
+                                <img className="heroImg" loading="eager" src={array[1].photo} alt={array[1].city} />
+                                <img className="heroImg" loading="eager" src={array[2].photo} alt={array[2].city} />
+                                <img className="heroImg" loading="eager" src={array[3].photo} alt={array[3].city} />
+                                {/* })} */}
+                            
+                            </div>
+                    })
+                }
                 </Carousel>
         </main>
     )
