@@ -12,18 +12,46 @@
     }
 }
 
-@media (prefers-color-scheme: light){
+@media (prefers-color-scheme: dark){
     :root{
         --bg-color: #111;
         --text-color: #ddd;
         --primary-color: #0bb;
     }
 }
-
+* a{
+    text-decoration: none;
+    color: var(--text-color);
+    transition: .5s ease;
+}
+* a:hover{
+    color: var(--primary-color);
+}
+* ul{
+    list-style: none;
+}
+button{
+    background: var(--primary-color);
+    border-radius: 25px;
+    color: #fff;
+    transition: .5s ease;
+    border: var(--primary-color) .2rem solid;
+    box-shadow: 4px 4px 4px #33333333;
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--bg-color);
+    color: currentColor;
+}
+button:active{
+    scale: .95;
+}
 body{
     min-height: 100vh;
     padding-left: 10vw;
     padding-right: 10vw;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 /*HEADER*/
@@ -34,23 +62,19 @@ header{
     justify-content: space-between;
     align-items: center;
 }
-header>div{
+header>a{
     display: flex;
     align-items: center;
     height: 100%;
 }
-header>div>img{
+header>a>img{
     height: 100%;
 }
 nav>ul, footer ul{
-    list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-}
-nav>ul>li>a, footer a{
-    text-decoration: none;
 }
 nav>ul>li>button{
     padding: .5rem;
@@ -100,7 +124,7 @@ main>section>button{
     box-shadow: 4px 4px 4px #33333360;
 }
 .grid{
-    min-height: 80vh;
+    min-height: 70vh;
     padding: 1rem;
     display: grid;
     gap: .5rem;
@@ -126,6 +150,10 @@ main>section>button{
 .icon{
     cursor: pointer;
     filter: drop-shadow(2px 2px 4px #33333360);
+    transition: .5s ease;
+}
+.icon:hover{
+    scale: 1.1;
 }
 
     /*Carousel*/
