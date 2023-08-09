@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import user from "/user.svg"
 
 function Header() {
     return (
@@ -16,7 +17,7 @@ function Header() {
                     <NavLink to="/cities">Cities</NavLink>
                     </li>
                     <li>
-                    <button>Login</button>
+                    <button><img src={user} alt="user" />Login</button>
                     </li>
                 </ul>
             </nav>

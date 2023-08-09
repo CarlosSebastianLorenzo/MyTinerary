@@ -19,6 +19,9 @@
         --primary-color: #0bb;
     }
 }
+* svg path{
+    fill: #fff;
+}
 * a{
     text-decoration: none;
     color: var(--text-color);
@@ -38,10 +41,14 @@ button{
     border: var(--primary-color) .2rem solid;
     box-shadow: 4px 4px 4px #33333333;
     cursor: pointer;
+    font-weight: bolder;
+    display: flex;
+    gap: .5rem;
 }
 button:hover{
     background-color: var(--bg-color);
-    color: currentColor;
+    color: var(--primary-color);
+    fill: var(--primary-color);
 }
 button:active{
     scale: .95;
@@ -52,6 +59,10 @@ body{
     padding-right: 10vw;
     background: var(--bg-color);
     color: var(--text-color);
+}
+.acent{
+    color: var(--primary-color);
+    font-style: italic;
 }
 
 /*HEADER*/

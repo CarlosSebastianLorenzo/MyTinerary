@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import leftArrow from '/leftarrow.svg'
 import rigthArrow from '/rigtharrow.svg'
 import circle from '/circle.svg'
@@ -28,6 +28,16 @@ export default function Carousel({children}) {
         setSelectedElement(elementsArray[index]);
         setSelectedIndex(index);
     }
+
+    useEffect(() => {
+        let intervalID = setInterval(()=>{
+            next();
+        }, 3000)
+
+        return () =>{
+            clearInterval(intervalID);
+        }
+    })
 
     return (
         <div className='slide'>
