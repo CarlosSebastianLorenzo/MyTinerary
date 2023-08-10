@@ -220,7 +220,17 @@ footer{
 /*MEDIA QUERY*/
 
 @media (max-width: 750px) {
+    header{
+        flex-direction: column;
+        height: 15vh;
+        padding-bottom: 2em;
+    }
+    nav{
+        flex-direction: column;
+        width: 0;
+    }
     main{
+        min-height: 75vh;
         flex-direction: column;
         justify-content: center;
         align-content: center;
