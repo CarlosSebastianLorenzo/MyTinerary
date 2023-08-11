@@ -1,8 +1,12 @@
-# React + Vite
+# MyTinerary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This website was created at the Full Stack MERN bootcamp of MindHub LA like a task.
+Given by the mentors:
 
-Currently, two official plugins are available:
+![My Tinerary Home Page](./public/MyTineraryHome.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Error 404 Page](./public/Error404Page.png)
+
+![Under Construction Page](./public/underConstruction.png)
+
+![Responsive Home Page](./public/responsiveHomePage.png)
