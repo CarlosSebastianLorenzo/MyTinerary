@@ -1,10 +1,10 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import Cities from '../components/Cities';
 import Main from '../layouts/Main';
 import Hero from '../components/Hero';
 import Error404 from '../components/Error404';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   { 
     path: '/',
     element: <Main/>,
