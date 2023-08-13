@@ -1,19 +1,32 @@
-import { NavLink } from "react-router-dom"
-import personWalkingLuggage from "/personwalkingluggage.svg"
-import underconstruction from "/underconstruction.svg"
+import CitiesArray from "../Utils/citiesMockup"
+import { Link } from "react-router-dom"
 
 const Cities = () => {
+
+    
+
     return (
         <main>
-        <section style={{ alignItems: 'center', flexDirection: 'column', gap: '1rem' }}>
-                <h1>Page Under <span className="acent">Construction</span></h1>
-                <h3>Content will be available soon</h3>
-                <NavLink to="/"><button>Go Back Home 
-                <img src={personWalkingLuggage} alt="personWalkingLuggage" /></button></NavLink>
-        </section>
-        <aside style={{minHeight: '10vh', height: '20vh'}}>
-            <img style={{maxWidth: '90vw', maxHeight: '60vh'}} src={underconstruction} alt="workers construction house" />
-        </aside>
+            <div>
+                <input type="text" name="search" placeholder=" "/>
+                <label htmlFor="search">Search By City</label>
+            </div>
+            <div>
+                {CitiesArray.map((city, indexMap) => {
+                    return <Link to={'/cities/'+city.city} key={indexMap}>
+                        <div className="card" >
+                            <div style={{backgroundImage: `url(${city.photo})`}}></div>
+                            <div>
+                                <h3>{city.city}</h3>
+                                <h5>{city.country}</h5>
+                                <p>{city.description}</p>
+                            </div>
+                        </div>
+                    </Link>
+                })
+                }
+            </div>
+
         </main>
     )
 }

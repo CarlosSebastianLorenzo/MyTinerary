@@ -1,4 +1,4 @@
-const Cities = [
+const CitiesArray = [
     {
         country: "Cambodia",
         fundation: "1113-01-01",
@@ -122,4 +122,4 @@ const Cities = [
     }
 ]
 
-export default Cities
+export default CitiesArray
