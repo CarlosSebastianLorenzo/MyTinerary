@@ -324,12 +324,15 @@ main>aside>h1{
     padding: 2rem;
     justify-content: flex-start;
 }
+.citiesMain aside{
+    min-height: 0;
+}
 
 .citiesMain>div{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: flex-end;
+    align-items: center;
     gap: 2rem;
 }
 

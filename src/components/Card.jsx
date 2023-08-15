@@ -1,19 +1,15 @@
 /* eslint-disable no-unreachable */
-import Cities from "../Utils/citiesMockup"
-
-const Card = () => {
+const Card = ({data}) => {
     return (
         <>
-            {Cities.map((city, indexMap) => {
-                return 
-                <div key={indexMap}>
-                    <div style={'backgroundImage:'+city.photo}></div>
-                    <h1>{city.city}</h1>
-                    <h2>{city.country}</h2>
-                    <p>{city.description}</p>
+            <div className="card" >
+                <div style={{backgroundImage: `url(${data.photo})`}}></div>
+                <div>
+                    <h3>{data.city}</h3>
+                    <h5>{data.country}</h5>
+                    <p>{data.description}</p>
                 </div>
-            })
-            }
+            </div>
         </>
     )
 }

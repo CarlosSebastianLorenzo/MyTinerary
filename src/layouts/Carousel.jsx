@@ -48,9 +48,9 @@ export default function Carousel({children}) {
             </div>
             <div className='selectors'>
                 {elementsArray.map((child,indexmap) =>{
-                        let pepe
-                        indexmap === selectedIndex ? pepe = circle :  pepe = circleEmpty
-                        return <Icon key={indexmap} fn={()=>select(indexmap)} icon={pepe}/>
+                        let selector
+                        indexmap === selectedIndex ? selector = circle :  selector = circleEmpty
+                        return <Icon key={indexmap} fn={()=>select(indexmap)} icon={selector}/>
                     })
                 }
             </div>
