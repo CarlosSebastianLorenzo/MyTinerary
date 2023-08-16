@@ -1,8 +1,9 @@
 import { RouterProvider, createHashRouter } from 'react-router-dom';
-import Cities from '../components/Cities';
-import Main from '../layouts/Main';
-import Hero from '../components/Hero';
-import Error404 from '../components/Error404';
+import Cities from './pages/Cities';
+import Main from './layouts/Main';
+import Hero from './pages/Hero';
+import Error404 from './pages/Error404';
+import Details from './pages/Details';
 
 const router = createHashRouter([
   { 
@@ -15,6 +16,10 @@ const router = createHashRouter([
       },
       { path:'/cities',
         element: <Cities/>
+      },
+      {
+        path:'/cities/:id',
+        element: <Details/>
       }
     ]
   },

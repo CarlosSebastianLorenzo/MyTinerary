@@ -1,18 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
 import { useState } from "react"
 import CitiesArray from "../Utils/citiesMockup"
 import { Link } from "react-router-dom"
 import girlwalking from "/girlwalking.svg"
-import Card from "./Card"
+import Card from "../components/Card"
 
 const Cities = () => {
 
     let [search, setSearch] = useState("")
 
     const filterCities = CitiesArray.filter(c => c.city.toLowerCase().trim().startsWith(search.toLowerCase().trim()))
-
-    console.log(filterCities)
 
     return (
         <main className="citiesMain">
