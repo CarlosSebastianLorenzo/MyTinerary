@@ -7,7 +7,7 @@ const Error404 = () => {
 
     useEffect(() =>{
         document.title = "Error 404: MyTinerary"
-    }),[]
+    },[])
 
     return (
         <main>

@@ -11,7 +11,7 @@ export default function Hero() {
 
     useEffect(() =>{
         document.title = "MyTinerary"
-    }),[]
+    },[])
 
     return (
         <main>

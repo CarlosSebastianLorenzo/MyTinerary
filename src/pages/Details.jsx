@@ -8,7 +8,7 @@ const Details = () => {
 
     useEffect(() => {
         document.title = params.id + " - MyTinerary"
-    }),[]
+    },[])
 
     return (
         <UnderConstruction>
