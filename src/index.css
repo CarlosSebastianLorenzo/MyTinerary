@@ -44,6 +44,7 @@
 
 * svg path{
     fill: #fff;
+    transition: .5s ease;
 }
 * input[type="text"]{
     border-radius: 25px;
@@ -127,6 +128,9 @@ button{
 button:hover{
     background-color: #00000010;
     color: var(--primary-color);
+    & svg path{
+        fill: var(--primary-color);;
+    }
 }
 button:active{
     scale: .95;
