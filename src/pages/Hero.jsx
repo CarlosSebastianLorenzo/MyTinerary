@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { FaPlaneDeparture } from "react-icons/fa6";
 import Carousel from "../layouts/Carousel"
 import CitiesArray from "../Utils/citiesMockup"
-import planeDeparture from "/planedeparture.svg"
 import splitArray from "../Utils/splitArray.js";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,10 @@ export default function Hero() {
                 <h1>Find <span className='acent'>your perfect </span> trip,</h1>
                 <h3>designed by insiders who know and love their cities!</h3>
                 <Link to='cities'>
-                    <button>Start Now <img src={planeDeparture} alt="planeDeparture" /></button>
+                    <button>
+                        Start Now
+                        <FaPlaneDeparture/>
+                    </button>
                 </Link>
             </section>
             <aside>

@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react"
 import { NavLink, Link } from "react-router-dom"
-import user from "/user.svg"
 import BurguerMenu from "./BurguerMenu"
+import {FaUser} from "react-icons/fa";
 
 function Header() {
 
@@ -37,7 +37,7 @@ function Header() {
                     <NavLink onClick={()=>setNavOpen(!navOpen)} className={({isActive})=> isActive ? 'active' : ''} to="/cities">Cities</NavLink>
                     </li>
                     <li>
-                    <button onClick={()=>setNavOpen(!navOpen)}><img src={user} alt="user" />Login</button>
+                    <button onClick={()=>setNavOpen(!navOpen)}><FaUser/>Login</button>
                     </li>
                 </ul>
             </nav>

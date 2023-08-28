@@ -28,7 +28,7 @@
 }
 /*SCROLLBAR*/
 ::-webkit-scrollbar{
-    width: .7em;
+    width: .7rem;
 }
 ::-webkit-scrollbar-track{
     background-color: var(--bg-color);
@@ -42,11 +42,7 @@
     background: linear-gradient(180deg, var(--secondary-color), var(--primary-color) 20%, var(--secondary-color), var(--primary-color) 80%, var(--secondary-color));
 }
 
-* svg path{
-    fill: #fff;
-    transition: .5s ease;
-}
-* input[type="text"]{
+input[type="text"]{
     border-radius: 25px;
     border: 2px solid var(--primary-color);
     height: 2rem;
@@ -73,17 +69,17 @@ input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + l
     color: var(--primary-color);
     font-weight: bolder;
 }
-* a{
+a{
     text-decoration: none;
     color: var(--text-color);
     transition: .5s ease;
     position: relative;
     font-size:larger;
 }
-* a:hover{
+a:hover{
     color: var(--primary-color);
 }
-* a:not(:has(button, img, .card))::before{
+a:not(:has(button, img, .card))::before{
     content: "";
     position: absolute;
     width: 0;
@@ -92,7 +88,7 @@ input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + l
     background: var(--primary-color);
     transition: 1s ease;
 }
-* a:hover::before{
+a:hover::before{
     width: 100%;
 }
 .active{
@@ -108,7 +104,7 @@ input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + l
     bottom: 0;
     background: var(--primary-color);
 }
-* ul{
+ul{
     list-style: none;
 }
 button{
@@ -128,17 +124,13 @@ button{
 button:hover{
     background-color: #00000010;
     color: var(--primary-color);
-    & svg path{
-        fill: var(--primary-color);;
-    }
 }
 button:active{
     scale: .95;
 }
 body{
     min-height: 100vh;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    max-width: calc(100vw-.7rem);
     background: var(--bg-color);
     color: var(--text-color);
     position: relative;
@@ -161,6 +153,8 @@ body::before{
 /*HEADER*/
 
 header{
+    max-width: 1350px;
+    margin: 0 auto;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -224,12 +218,15 @@ nav>ul>li>button{
 /*MAIN*/
 
 main{
-    min-height: 76vh;
+    min-height: 79.8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
     padding-top: 1rem;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding-left: 5rem;
 }
 main>section{
     display: flex;
@@ -367,7 +364,10 @@ main>aside>h1{
     transition: .5s ease;
 }
 .icon:hover{
-    scale: 1.1;
+    scale: 1.5;
+}
+.icon:focus{
+    scale: .9;
 }
 
     /*Carousel*/
@@ -427,6 +427,7 @@ a:has(.card):hover{
     height: 25rem;
     width: 20rem;
     background: var(--primary-color);
+    color: var(--bg-color);
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -470,6 +471,10 @@ a:has(.card):hover{
 
 /*DETAILS*/
 .details{
+    max-width: 1350px;
+    margin: 0 auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
     margin-top: 2rem;
     padding-top: 0rem;
     width: 100%;
@@ -605,9 +610,11 @@ footer{
         justify-content: center;
         align-content: center;
         gap: 2rem;
+        padding-left: 0;
     }
     main>section{
         align-items: center;
+        width: auto;
     }
     aside{
         min-height: 80vh;

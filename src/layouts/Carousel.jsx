@@ -1,9 +1,5 @@
 import {useState, useEffect} from 'react'
-import leftArrow from '/leftarrow.svg'
-import rigthArrow from '/rigtharrow.svg'
-import circle from '/circle.svg'
-import circleEmpty from '/circleEmpty.svg'
-import Icon from './Icon'
+import { BsCircle, BsCircleFill, BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 export default function Carousel({children}) {
     const elementsArray = children.map(child => child)
@@ -33,7 +29,6 @@ export default function Carousel({children}) {
         let intervalID = setInterval(()=>{
             next();
         }, 7000)
-
         return () =>{
             clearInterval(intervalID);
         }
@@ -42,15 +37,17 @@ export default function Carousel({children}) {
     return (
         <div className='slide'>
             <div className="contentSlide">
-                <Icon fn={previous} icon={leftArrow}/>
+                <BsChevronLeft onClick={previous} size="10rem" className="icon"/>
                 {selectedElement}
-                <Icon fn={next} icon={rigthArrow}/>
+                <BsChevronRight onClick={next} size="10rem" className="icon"/>
             </div>
             <div className='selectors'>
                 {elementsArray.map((child,indexmap) =>{
                         let selector
-                        indexmap === selectedIndex ? selector = circle :  selector = circleEmpty
-                        return <Icon key={indexmap} fn={()=>select(indexmap)} icon={selector}/>
+                        indexmap === selectedIndex ?
+                        selector = <BsCircleFill className="icon" key={indexmap} onClick={()=>select(indexmap)}/> :
+                        selector = <BsCircle className="icon" key={indexmap} onClick={()=>select(indexmap)}/>
+                        return selector
                     })
                 }
             </div>
