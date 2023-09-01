@@ -4,6 +4,8 @@ import Main from './layouts/Main';
 import Hero from './pages/Hero';
 import Error404 from './pages/Error404';
 import Details from './pages/Details';
+import { Provider } from 'react-redux';
+import store from './Redux/Store.js';
 
 const router = createHashRouter([
   { 
@@ -32,9 +34,9 @@ const router = createHashRouter([
 function App() {
 
   return (
-    <>
+    <Provider store={store} >
       <RouterProvider router={router}/>
-    </>
+    </Provider>
   )
 }
 

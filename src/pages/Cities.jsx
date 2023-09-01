@@ -1,39 +1,29 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import girlwalking from "/girlwalking.svg"
 import Card from "../components/Card"
-import { apiURL } from "../Utils/apiURL"
+import { useSelector, useDispatch } from "react-redux"
+import { readAllCities } from "../Redux/Actions/CitiesAction.js"
 
 const Cities = () => {
 
-    const [CitiesArray, setCitiesArray] = useState([])
-    const [filterCities, setFilterCities] = useState([])
-    const inputSearch = useRef(null)
+    const [inputSearch, setInputSearch] = useState("")
+    const dispatch = useDispatch()
+    const filterCities = useSelector(store => store.readAllCitiesReducer.cities)
+
+    useEffect(()=>{
+            dispatch(readAllCities(inputSearch))
+    },[dispatch, inputSearch])
 
     useEffect(() => {
         document.title = "Cities - MyTinerary"
     },[])
 
-    useEffect(() => {
-        fetch(apiURL+"cities")
-        .then(response => response.json())
-        .then(data => {
-            setCitiesArray(data.response)
-            setFilterCities(data.response)
-        })
-    },[])
-
-    const handleSearch = ()=>{
-        const search = inputSearch.current.value.toLowerCase().trim()
-        const filteredCities = CitiesArray.filter(c => c.city.toLowerCase().trim().startsWith(search))
-        setFilterCities(filteredCities)
-    }
-
     return (
         <main className="citiesMain">
             <div>
-                <input type="text" name="search" placeholder=" " ref={(inputSearch)} onChange={handleSearch}/>
+                <input type="text" name="search" placeholder=" " onChange={(e)=>setInputSearch(e.target.value)}/>
                 <label htmlFor="search">Search By City</label>
             </div>
             <div>
