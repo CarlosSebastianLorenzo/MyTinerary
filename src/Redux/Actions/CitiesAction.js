@@ -22,3 +22,12 @@ export const readOneCity = createAsyncThunk('readOneCity', async (name)=>{
         return []
     }
 })
+export const readItinerariesByCity = createAsyncThunk('readItinerariesByCity', async (city)=>{
+    try {
+        const res = await axios.get(apiURL+"itineraries/"+city)
+        return res.data.response
+    } catch (error) {
+        console.log(error);
+        return []
+    }
+})
