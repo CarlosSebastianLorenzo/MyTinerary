@@ -1,18 +1,23 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { apiURL } from "../../Utils/apiURL";
 import axios from "axios";
 
-export const readAllCities = createAsyncThunk('readAllCities', async (inputSearch)=>{
+export const readAllCities = createAsyncThunk('readAllCities', async ()=>{
     try {
-        const res = await axios.get(apiURL+"cities")
-        const search = inputSearch.toLowerCase().trim()
-        const filteredCities = res.data.response.filter(c => c.city.toLowerCase().trim().startsWith(search))
-        return filteredCities
+        const cities = (await axios.get(apiURL+"cities")).data.response
+        return cities
     } catch (error) {
         console.log(error);
         return []
     }
 })
+
+export const filterCities = createAction('filterCities', (search)=>{
+    return {
+        payload: search
+    }
+})
+
 export const readOneCity = createAsyncThunk('readOneCity', async (name)=>{
     try {
         const res = await axios.get(apiURL+"cities/"+name)

@@ -1,34 +1,40 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import girlwalking from "/girlwalking.svg"
 import Card from "../components/Card"
 import { useSelector, useDispatch } from "react-redux"
-import { readAllCities } from "../Redux/Actions/CitiesAction.js"
+import { readAllCities, filterCities } from "../Redux/Actions/CitiesAction.js"
 
 const Cities = () => {
 
-    const [inputSearch, setInputSearch] = useState("")
     const dispatch = useDispatch()
-    const filterCities = useSelector(store => store.readAllCitiesReducer.cities)
+    const cities = useSelector(store => store.readAllCitiesReducer.filteredCities)
 
-    useEffect(()=>{
-            dispatch(readAllCities(inputSearch))
-    },[dispatch, inputSearch])
+    useEffect(
+        ()=>{
+            dispatch(readAllCities())
+        }
+    ,[]
+    )
 
     useEffect(() => {
         document.title = "Cities - MyTinerary"
     },[])
 
+    const handleSearch = (search)=>{
+        dispatch(filterCities(search))
+    }
+
     return (
         <main className="citiesMain">
             <div>
-                <input type="text" name="search" placeholder=" " onChange={(e)=>setInputSearch(e.target.value)}/>
+                <input type="text" name="search" placeholder=" " onChange={(e)=>handleSearch(e.target.value)}/>
                 <label htmlFor="search">Search By City</label>
             </div>
             <div>
                 {
-                    (filterCities == "") ?
+                    (cities == "") ?
                     <>
                     <section style={{ display:'flex', flexDirection: 'column', gap: '.5rem' }}>
                         <h1>Oops, <span className="acent">Sorry,</span></h1>
@@ -39,7 +45,7 @@ const Cities = () => {
                     </aside>
                     </>
                     :
-                    filterCities.map((city, indexMap) => {
+                    cities.map((city, indexMap) => {
                     return <Link to={'/cities/'+city.city} key={indexMap}>
                         <Card data={city}></Card>
                     </Link>
