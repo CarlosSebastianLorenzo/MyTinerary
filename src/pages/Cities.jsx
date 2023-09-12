@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
@@ -11,12 +12,9 @@ const Cities = () => {
     const dispatch = useDispatch()
     const cities = useSelector(store => store.readAllCitiesReducer.filteredCities)
 
-    useEffect(
-        ()=>{
+    useEffect(()=>{
             dispatch(readAllCities())
-        }
-    ,[]
-    )
+    },[])
 
     useEffect(() => {
         document.title = "Cities - MyTinerary"
