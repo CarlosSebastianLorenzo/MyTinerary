@@ -1,7 +1,7 @@
 import {FaMoneyBillWave} from "react-icons/fa";
 import { useState } from "react";
-import underconstruction from "/underconstruction.svg"
 import { BsChevronDown} from "react-icons/bs";
+import Activities from "./Activities";
 
 const Itinerary = ({data}) => {
 
@@ -54,11 +54,7 @@ const Itinerary = ({data}) => {
                 <h5><span>Duration: </span>{data.duration} min</h5>
             </div>
             <div className={expanded ? 'expanded' : 'collapsed expanded'}>
-                <div>
-                    <h2>Section <span className="acent">Under </span>Construction</h2>
-                    <h5>Content will be available soon</h5>
-                </div>
-                <img style={{maxWidth: '90%', maxHeight: '10rem'}} src={underconstruction} alt="workers construction house" />
+                <Activities itineraryId={data._id}/>               
             </div>
             <div onClick={()=>{setExpanded(!expanded)}} className="view-more">View More <BsChevronDown size="1rem" style={{transition: "1s ease", transform: expanded ? 'rotate(-180deg)' : '' }}/></div>
         </div>

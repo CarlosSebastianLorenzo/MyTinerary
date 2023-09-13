@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import { Outlet, Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'

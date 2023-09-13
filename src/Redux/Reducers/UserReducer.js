@@ -55,6 +55,14 @@ export const userSignUpReducer = createReducer(initialState, (builder)=> {
                 isOnline: true
             }
         })
+        .addCase(logInWithToken.pending, (store)=>{
+            return {
+                ...store,
+                user: {},
+                token: "",
+                isOnline: true
+            }
+        })
         .addCase(logInWithToken.rejected, (store)=>{
             return {
                 ...store,

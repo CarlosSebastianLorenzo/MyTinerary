@@ -231,7 +231,7 @@ nav>ul>li>button>img{
 /*MAIN*/
 
 main{
-    min-height: 79.8vh;
+    min-height: 76vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -672,12 +672,22 @@ a:has(.card):hover{
     border: 2px var(--secondary-color) solid;
 }
 .expanded{
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 1em;
     padding: 1rem;
     transition: 1s ease;
-    overflow: hidden;
-    height: 15rem;
+    overflow-x: hidden;
+    height: 12em;
+    flex-wrap: nowrap;
+}
+.expanded::-webkit-scrollbar{
+    width: .3em;
+}
+.expanded::-webkit-scrollbar-track{
+    cursor: pointer;
 }
 .collapsed{
     opacity: 0;
@@ -716,7 +726,23 @@ a:has(.card):hover{
     border-bottom: solid .2px var(--secondary-color);
     border-right: solid .2px var(--secondary-color);
 }
-
+.activity{
+    display: flex;
+    gap: 1em;
+    min-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.activity h2{
+    width: 40%;
+}
+.activity img{
+    border-radius: 25px;
+    box-shadow: 4px 4px 8px #33333333;
+    width: 60%;
+    object-fit: cover;
+    object-position: center center;
+}
 /*FOOTER*/
 
 footer{
@@ -789,7 +815,7 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-content: center;
-        gap: 2rem;
+        gap: 4em;
         padding-left: 0;
     }
     main>section{
