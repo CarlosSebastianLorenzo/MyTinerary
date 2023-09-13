@@ -42,7 +42,7 @@
     background: linear-gradient(180deg, var(--secondary-color), var(--primary-color) 20%, var(--secondary-color), var(--primary-color) 80%, var(--secondary-color));
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
     border-radius: 25px;
     border: 2px solid var(--primary-color);
     height: 2rem;
@@ -51,10 +51,10 @@ input[type="text"]{
     padding-left: 1rem;
     outline: none;
 }
-div:has(input[type="text"]){
+div:has(input[type="text"], input[type="password"]){
     position: relative;
 }
-div:has(input[type="text"]) label{
+div:has(input[type="text"], input[type="password"]) label{
     position: absolute;
     inset: 0.3em 1em;
     pointer-events: none;
@@ -64,10 +64,19 @@ div:has(input[type="text"]) label{
     padding-right: 1em;
     padding-left: 1em;
 }
-input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + label {
+input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + label,
+input[type="password"]:focus + label, input[type="password"]:not(:placeholder-shown) + label  {
     translate: -.5rem -1.8rem;
     color: var(--primary-color);
     font-weight: bolder;
+}
+.eye{
+    color: var(--primary-color);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: -1em -50% ;
 }
 a{
     text-decoration: none;
@@ -158,6 +167,7 @@ header{
     height: 10vh;
     display: flex;
     justify-content: space-between;
+    padding: 1em;
     align-items: center;
 }
 header>a{
@@ -176,6 +186,9 @@ nav>ul, footer ul{
 }
 nav>ul>li>button{
     padding: .5rem;
+}
+nav>ul>li>button>img{
+    height: 2em;
 }
 /*Burguer Menu*/
 .burguer{
@@ -258,7 +271,7 @@ main>section>a>button{
     animation: translateBottom ease-in-out 2s;
 }
 main>aside{
-    height: 70vh;
+    max-height: 70vh;
     min-width: 50%;
     width: fit-content;
     display: flex;
@@ -760,12 +773,12 @@ footer{
         font-weight: bolder;
         font-size: 3rem;
         padding-right: 1rem;
-        padding-left: 2rem;
-        gap: 2rem;
+        padding-left: 1rem;
+        gap: .1em;
         vertical-align: middle;
     }
     nav>ul>li>button>img{
-        scale: 2.5;
+        scale: .8;
     }
     .burguer{
         display: flex;
@@ -783,7 +796,7 @@ footer{
         align-items: center;
         width: auto;
     }
-    aside{
+    /* aside{
         min-height: 80vh;
-    }
+    } */
 }

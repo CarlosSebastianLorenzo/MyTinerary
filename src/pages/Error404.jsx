@@ -10,7 +10,7 @@ const Error404 = () => {
     },[])
 
     return (
-        <main>
+        <main style={{height: '100vh', padding: '2rem'}}>
         <section style={{ alignItems: 'center', flexDirection: 'column', gap: '1rem' }}>
                 <h1>ERROR <span className="acent">404</span></h1>
                 <h3>Sorry, page not found</h3>
@@ -22,7 +22,7 @@ const Error404 = () => {
                 </NavLink>
         </section>
         <aside style={{minHeight: '10vh', height: 'fitContent'}}>
-            <img style={{maxWidth: '90vw'}} src={manlost} alt="girl walking" />
+            <img style={{maxWidth: '100%'}} src={manlost} alt="girl walking" />
         </aside>
         </main>
     )
