@@ -8,10 +8,7 @@ const ProtectedRoute = () => {
 
     const isOlinline = useSelector(store => store.userSignUpReducer.isOnline)
     const [isAuth, setIsAuth] = useState(true)
-    console.log({
-        isOnline: isOlinline,
-        isAuth: isAuth
-    })
+
     useEffect(()=>{
         setIsAuth(!isOlinline)
     },[])

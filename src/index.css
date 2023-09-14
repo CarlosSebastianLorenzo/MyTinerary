@@ -10,6 +10,8 @@
         --text-color: #111;
         --primary-color: #044;
         --secondary-color: #066;
+        --toastify-color-success: #044 !important;
+        --toastify-color-error: #fd6584 !important;
     }
 }
 
@@ -18,7 +20,9 @@
         --bg-color: #111;
         --text-color: #ddd;
         --primary-color: #0bb;
-        --secondary-color: #044
+        --secondary-color: #044;
+        --toastify-color-success: #0bb !important;
+        --toastify-color-error: #fd6584 !important;
     }
 }
 /* SELECTION*/
@@ -42,7 +46,7 @@
     background: linear-gradient(180deg, var(--secondary-color), var(--primary-color) 20%, var(--secondary-color), var(--primary-color) 80%, var(--secondary-color));
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], select{
     border-radius: 25px;
     border: 2px solid var(--primary-color);
     height: 2rem;
@@ -50,6 +54,22 @@ input[type="text"], input[type="password"]{
     max-width: 80vw;
     padding-left: 1rem;
     outline: none;
+}
+select+label{
+    display: none;
+}
+select{
+    padding-left: 1.5em;
+    font-size: 1em;
+    position: relative;
+}
+select:active option {
+    background-color: var(--primary-color);
+    color: var(--text-color)
+}
+
+select::-ms-expand {
+    display: none;
 }
 div:has(input[type="text"], input[type="password"]){
     position: relative;
@@ -65,7 +85,7 @@ div:has(input[type="text"], input[type="password"]) label{
     padding-left: 1em;
 }
 input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + label,
-input[type="password"]:focus + label, input[type="password"]:not(:placeholder-shown) + label  {
+input[type="password"]:focus + label, input[type="password"]:not(:placeholder-shown) + label {
     translate: -.5rem -1.8rem;
     color: var(--primary-color);
     font-weight: bolder;

@@ -4,7 +4,7 @@ import { LuLogIn } from "react-icons/lu";
 import { FaEyeSlash, FaEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { userSignUp } from "../Redux/Actions/UserAction.js";
 import { useDispatch } from "react-redux";
@@ -17,7 +17,7 @@ const SignUp = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const repeatPassword = useRef()
-
+    const [countries, setCountries] = useState([])
     const [showPassword, setShowPassword] = useState(false)
     const [userData, setUserData] = useState({
         email: "",
@@ -25,6 +25,14 @@ const SignUp = () => {
         fullName: "",
         photo: ""
     })
+
+    useEffect(()=>{
+        axios.get('src/Utils/countriesMockup.json')
+        .then(response => {
+            let countriesArray = response.data.map(e => e.name.common)
+            setCountries(countriesArray)
+        })
+    },[])
 
     const handleChangeUserData = (e) =>{
         setUserData({...userData, [e.target.name]:e.target.value})
@@ -107,6 +115,15 @@ const SignUp = () => {
                             placeholder=" " value={userData.photo} 
                             onChange={(e)=>handleChangeUserData(e)}/>
                         <label htmlFor="photo">Profile Photo URL</label>
+                    </div>
+                    <div>
+                        <select name="selectCountry">
+                            {countries.map((country, indexMap)=>{
+                                return <option key={indexMap} value={country}>{country}</option>
+                            })}
+                            <option value="noCountry" selected>Select a Country</option>
+                        </select>
+                        <label htmlFor="selectCountry">Select a Country</label>
                     </div>
                     <button type="submit" style={{padding:'.5em', fontSize: '1.2em', }}>
                         Sign Up <LuLogIn/>
