@@ -35,11 +35,13 @@ export default function Carousel({children}) {
     })
 
     return (
-        <div className='slide'>
+        <div className='carousel'>
             <div className="contentSlide">
-                <BsChevronLeft onClick={previous} size="10rem" className="icon"/>
-                {selectedElement}
-                <BsChevronRight onClick={next} size="10rem" className="icon"/>
+                <BsChevronLeft onClick={previous} size="2em" className="icon arrow"/>
+                <div>
+                    {selectedElement}
+                </div>
+                <BsChevronRight onClick={next} size="2em" className="icon arrow"/>
             </div>
             <div className='selectors'>
                 {elementsArray.map((child,indexmap) =>{

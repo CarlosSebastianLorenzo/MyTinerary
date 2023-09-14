@@ -235,24 +235,24 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    padding-top: 1rem;
+    gap: 2em;
+    padding: 1em;
     max-width: 1350px;
+    max-width: 90vw;
     margin: 0 auto;
-    padding-left: 5rem;
 }
 main>section{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
-    width: 40rem;
+    width: 45em;
     max-width: 100%;
 }
 main>section>h1{
     max-width: 20rem;
     font-size: 3rem;
     animation: translateTop ease-in-out 3s;
-
 }
 main>section>h3{
     max-width: 20rem;
@@ -271,68 +271,53 @@ main>section>a>button{
     animation: translateBottom ease-in-out 2s;
 }
 main>aside{
-    max-height: 70vh;
-    min-width: 50%;
-    width: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 0.5em;
 }
 main>aside>h1{
     animation: translateLeft ease-in-out 3s;
 }
-
-/*CLASS COMPONENTS*/
-.heroImg{
-    width: 100%;
+main>aside>.carousel{
     height: 100%;
-    background: var(--primary-color);
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 4px 4px 4px #33333360;
-    transition: .5s ease;
+    flex-grow: 1;
 }
-.heroImg::before{
-    content: '';
-    position: absolute;
+    /*CAROUSEL*/
+.carousel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+.contentSlide{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5em;
+}
+.contentSlide>div{
     height: 100%;
     width: 100%;
-    background: linear-gradient(to top, #000, transparent 50%);
-    z-index: 1;
-    border-radius: 10px;
+    flex-grow: 1;
 }
-.heroImg>img{
-    mix-blend-mode:luminosity;
-    width: 100%;
-    height: 100%;
-    max-height: 80vh;
-    object-fit:cover;
-    position: relative;
-    border-radius: 10px;
-    transition: 1s;
+.arrow{
+    width: 2em;
 }
-.heroImg:hover>img{
-    mix-blend-mode:normal;
-}
-.heroImg>h3, .heroImg>h5{
-    color: #ddd;
-    position: absolute;
-    bottom: 1.5em;
-    right: 50%;
-    translate: 50% -50%;
-    z-index: 2;
-    filter: drop-shadow(2px 2px 2px #000)
-}
-.heroImg>h5{
-    bottom: .5em;
+.selectors{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
 }
 .grid{
-    min-height: 70vh;
-    padding: 1rem;
+    max-width: 60vw;
+    height: 63vh;
+    justify-content: center;
     display: grid;
-    gap: .5rem;
+    gap: .5em;
     grid-auto-columns: 1fr;
+    grid-auto-rows: minmax(0, 1fr);
     grid-template-areas: 
     "two one"
     "two three"
@@ -340,7 +325,7 @@ main>aside>h1{
 }
 .grid>div:nth-child(1){
     grid-area: one;
-    animation: translateTop ease-in-out 3s;
+    animation: translateTop ease-in-out 2s alternate ;
 }
 @keyframes translateTop {
     from { translate: 0em -1em; opacity: 0;}
@@ -348,7 +333,7 @@ main>aside>h1{
 }
 .grid>div:nth-child(2){
     grid-area: two;
-    animation: translateLeft ease-in-out 2.5s;
+    animation: translateLeft ease-in-out 2s alternate ;
 }
 @keyframes translateLeft {
     from { translate: -3em 0em; opacity: 0}
@@ -356,7 +341,7 @@ main>aside>h1{
 }
 .grid>div:nth-child(3){
     grid-area: three;
-    animation: translateRight ease-in-out 2s;
+    animation: translateRight ease-in-out 2s alternate ;
 }
 @keyframes translateRight {
     from { translate: 3em 0em; opacity: 0}
@@ -364,7 +349,7 @@ main>aside>h1{
 }
 .grid>div:nth-child(4){
     grid-area: four;
-    animation: translateBottom ease-in-out 1s;
+    animation: translateBottom ease-in-out 2s alternate ;
 }
 @keyframes translateBottom {
     from { translate: 0em 3em; opacity: 0}
@@ -382,28 +367,51 @@ main>aside>h1{
 .icon:focus{
     scale: .9;
 }
-
-    /*Carousel*/
-.slide{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-    gap: 2rem;
-}
-.contentSlide{
-    flex-grow: 1;
+.heroImg{
+    height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    background: var(--primary-color);
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #33333360;
+    transition: .5s ease;
 }
-.selectors{
-    display: flex;
-    gap: .5rem;
-    justify-content: center;
+
+.heroImg::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #000, transparent 50%);
+    z-index: 1;
+    border-radius: 10px;
 }
+.heroImg>img{
+    mix-blend-mode:luminosity;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    position: relative;
+    border-radius: 10px;
+    transition: 1s;
+}
+.heroImg:hover>img{
+    mix-blend-mode:normal;
+}
+.heroImg>h3, .heroImg>h5{
+    color: #ddd;
+    position: absolute;
+    bottom: 1.5em;
+    right: 50%;
+    translate: 50% -50%;
+    z-index: 2;
+    filter: drop-shadow(2px 2px 2px #000);
+    text-align: center;
+}
+.heroImg>h5{
+    bottom: .5em;
+}
+
 
 /*CARD*/
 .citiesMain{
@@ -822,7 +830,10 @@ footer{
         align-items: center;
         width: auto;
     }
-    /* aside{
-        min-height: 80vh;
-    } */
+    .grid{
+        max-width: none;
+    }
+    .heroImg>h3, .heroImg>h5{
+        font-size: smaller;
+    }
 }
