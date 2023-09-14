@@ -29,7 +29,7 @@ function Header() {
     const logIn = async () => {
         setNavOpen(!navOpen)
         await dispatch(userLogOut())
-        navigate('/signin')
+        navigate('/register/signin')
     }
 
     return (

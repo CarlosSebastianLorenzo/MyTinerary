@@ -14,38 +14,38 @@ import { logInWithToken } from './Redux/Actions/UserAction.js';
 const router = createHashRouter([
   { 
     path: '/',
-    element: <ProtectedRoute/>,
+    element: <Main/>,
     children: [
       {
         path: '/',
-        element: <Main/>,
-        children: [
-          {
-            path: '/',
-            element: <Hero />,
-          },
-          { path:'/cities',
-            element: <Cities/>
-          },
-          {
-            path:'/cities/:id',
-            element: <Details/>
-          }
-        ]
+        element: <Hero />,
+      },
+      { path:'/cities',
+        element: <Cities/>
       },
       {
-        path: '*',
-        element: <Error404 />
+        path:'/cities/:id',
+        element: <Details/>
       }
     ]
   },
   {
-    path: '/signin',
-    element: <SignIn />
+    path: '*',
+    element: <Error404 />
   },
   {
-    path: '/signup',
-    element: <SignUp />
+    path: '/register',
+    element: <ProtectedRoute/>,
+    children: [
+      {
+        path: '/register/signin',
+        element: <SignIn />
+      },
+      {
+        path: '/register',
+        element: <SignUp />
+      }
+    ]
   }
 ])
 

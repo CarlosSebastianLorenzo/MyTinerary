@@ -76,7 +76,7 @@ const SignIn = () => {
                         Log In with Google <ImGoogle/>
                     </button>
                 </form>
-                <p className="link">Don't have an account? <Link to='/signup' className="acent link">Sign Up</Link></p>
+                <p className="link">Don't have an account? <Link to='/register' className="acent link">Sign Up</Link></p>
             </section>
             <aside style={{minHeight: '10vh', height: 'fitContent'}}>
                 <img style={{maxWidth: '100%', zIndex: '-1'}} src={manLogin} alt="man select map" />

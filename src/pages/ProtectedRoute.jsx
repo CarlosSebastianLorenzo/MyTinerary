@@ -2,19 +2,25 @@
 import { useEffect, useState } from 'react'
 import { Outlet, Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 const ProtectedRoute = () => {
 
-    const selector = useSelector(store => store.userSignUpReducer.isOnline)
+    const isOlinline = useSelector(store => store.userSignUpReducer.isOnline)
     const [isAuth, setIsAuth] = useState(true)
-
+    console.log({
+        isOnline: isOlinline,
+        isAuth: isAuth
+    })
     useEffect(()=>{
-        setIsAuth(selector)
+        setIsAuth(!isOlinline)
     },[])
+
+    if(!isAuth) { toast.error('Must be logged out to visit the sections signIn/signUp')}
 
     return (
         <>
-            {isAuth ? <Outlet/> : <Navigate to='/signin' />}
+            {isAuth ? <Outlet/> : <Navigate to='/' />}
         </>
     )
 }

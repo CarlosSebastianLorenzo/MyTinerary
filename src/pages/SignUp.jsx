@@ -107,7 +107,7 @@ const SignUp = () => {
                         Sign Up with Google <ImGoogle/>
                     </button>
                 </form>
-                    <p className="link">Already have an account? <Link to='/signin' className="acent link">Sign In</Link></p>
+                    <p className="link">Already have an account? <Link to='/register/signin' className="acent link">Sign In</Link></p>
             </section>
             <aside style={{minHeight: '10vh', height: 'fitContent'}}>
                 <img style={{maxWidth: '100%'}} src={girlMapWorld} alt="girl map of the world" />
