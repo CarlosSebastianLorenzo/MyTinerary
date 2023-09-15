@@ -387,7 +387,7 @@ main>aside>.carousel{
 .icon:hover{
     scale: 1.5;
 }
-.icon:focus{
+.icon:active{
     scale: .9;
 }
 .heroImg{
@@ -808,7 +808,9 @@ a:has(.card):hover{
     text-align: start;
     flex-direction: column;
 }
-
+div:has(.commentTextArea){
+    position: relative;
+}
 .commentTextArea {
     border-radius: 5px 5px 3em 3em;
     resize:none ;
@@ -821,6 +823,17 @@ a:has(.card):hover{
 }
 .commentTextArea::-webkit-scrollbar{
     display: none;
+}
+.sendComment{
+    position: absolute;
+    z-index: 1;
+    bottom: .5em;
+    right: 1em;
+    font-size: 2em;
+    color: var(--primary-color);
+    background: transparent;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 /*FOOTER*/

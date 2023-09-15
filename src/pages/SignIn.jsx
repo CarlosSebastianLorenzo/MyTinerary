@@ -77,6 +77,7 @@ const SignIn = () => {
                     </button>
                 </form>
                 <p className="link">Don't have an account? <Link to='/register' className="acent link">Sign Up</Link></p>
+                <p className="link">or <Link to='/' className="acent link">Continue</Link> without logging in</p>
             </section>
             <aside style={{minHeight: '10vh', height: 'fitContent'}}>
                 <img style={{maxWidth: '100%', zIndex: '-1'}} src={manLogin} alt="man select map" />

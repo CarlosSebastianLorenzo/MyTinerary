@@ -1,15 +1,52 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { apiURL } from "../Utils/apiURL.js"
 import axios from "axios";
+import {BsSendFill} from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const Comments = ({itineraryId}) => {
 
     const [comments, setComments] = useState([])
+    const user = useSelector(store => store.userSignUpReducer.user)
+    const commentTextArea = useRef()
 
     useEffect(()=>{
         axios.get(apiURL+"comments/"+itineraryId)
         .then(response => setComments(response.data.response))
-    },[itineraryId])
+    },[])
+
+    const sendComment = async () => {
+
+        if (!user || Object.keys(user).length === 0) {
+            toast.error('must be logged in to comment')
+            return
+        }
+
+        if (commentTextArea.current.value.trim() == ""){
+            toast.error('The comment field cannot be empty.')
+            return
+        }
+
+        axios.post(apiURL+"comments", {
+            itineraryId : itineraryId,
+            userId : user._id,
+            text : commentTextArea.current.value
+        })
+        .then(response => {
+            const newComment = {...response.data.response, userId: {
+                fullName: user.fullName,
+                photo: user.photo}
+            }
+            setComments([newComment, ...comments]);
+            toast.success("comment added successfully");
+        })
+        .catch(error => {
+            console.log(error);
+            toast.error(error.response.data.error);
+        })
+
+    }
 
     return (
         <div>
@@ -30,7 +67,8 @@ const Comments = ({itineraryId}) => {
             </div>
             <div>
                 <h4 className="acent">Leave your Comment</h4>
-                <textarea name="comment" minLength="0" maxLength="140" placeholder="" rows="5" cols="45" className="commentTextArea" ></textarea>
+                <textarea ref={commentTextArea} name="commentTextArea" minLength="0" maxLength="140" placeholder="" rows="5" cols="45" className="commentTextArea" ></textarea>
+                <BsSendFill onClick={sendComment} className="sendComment icon"/>
             </div>
         </div>
     )
