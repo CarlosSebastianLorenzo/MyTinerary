@@ -11,6 +11,7 @@ const Activities = ({itineraryId}) => {
     useEffect(()=>{
         axios.get(apiURL+"activities/"+itineraryId)
         .then(response => setActivities(response.data.response))
+        .catch(error => console.error(error))
     },[itineraryId])
     
     return (

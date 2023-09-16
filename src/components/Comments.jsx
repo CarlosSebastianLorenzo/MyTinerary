@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from "react"
 import { apiURL } from "../Utils/apiURL.js"
 import axios from "axios";
@@ -43,6 +44,7 @@ const Comments = ({itineraryId}) => {
         })
         .catch(error => {
             console.log(error);
+            if(error.message == "Network Error") { toast.error("Temporary Network Connectivity Issues, Apologies")}
             toast.error(error.response.data.error);
         })
 
