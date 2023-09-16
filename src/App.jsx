@@ -7,6 +7,7 @@ import Details from './pages/Details';
 import ProtectedRoute from './pages/ProtectedRoute';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Mockups from './pages/Mockups';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { logInWithToken } from './Redux/Actions/UserAction.js';
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path:'/cities/:id',
         element: <Details/>
+      },
+      {
+        path:'/gallery',
+        element: <Mockups/>
       }
     ]
   },

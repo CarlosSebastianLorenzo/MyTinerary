@@ -62,6 +62,9 @@ function Header() {
                     <li>
                     <NavLink onClick={()=>setNavOpen(!navOpen)} className={({isActive})=> isActive ? 'active' : ''} to="/cities">Cities</NavLink>
                     </li>
+                    <li>
+                    <NavLink onClick={()=>setNavOpen(!navOpen)} className={({isActive})=> isActive ? 'active' : ''} to="/gallery">Gallery</NavLink>
+                    </li>
                     { user && Object.keys(user).length !== 0 ?
                         <li style={{display: 'flex', gap: '1em'}}>
                             <button onClick={logIn}>

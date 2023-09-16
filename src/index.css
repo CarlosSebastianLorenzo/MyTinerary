@@ -899,7 +899,7 @@ footer{
         height: 100vh;
     }
     nav>ul{
-        padding-top: 10rem;
+        padding-top: 5em;
         flex-direction: column;
         transition: 3 ease;
     }
@@ -940,5 +940,38 @@ footer{
     }
     .heroImg>h3, .heroImg>h5{
         font-size: smaller;
+    }
+}
+@media (max-width: 370px){
+    header>a>h2{
+        display: none;
+    }
+    .burguer{
+        right: .2em;
+    }
+    nav a{
+        font-size: 2em;
+    }
+    nav>ul>li>button{
+        font-size: 2em;
+        gap: .1em;
+    }
+    nav>ul>li>button>img{
+        scale: .7;
+    }
+}
+@media (max-height: 630px) {
+    nav>ul{
+        padding-top: 1em;
+    }
+    nav a{
+        font-size: 1em;
+    }
+    nav>ul>li>button{
+        font-size: 1em;
+        gap: .1em;
+    }
+    nav>ul>li>button>img{
+        scale: .5;
     }
 }
