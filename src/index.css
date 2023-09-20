@@ -359,7 +359,7 @@ main>aside>.carousel{
     justify-content: center;
     display: grid;
     gap: .5em;
-    grid-auto-columns: 1fr;
+    grid-auto-columns: minmax(22vw, 1fr);
     grid-auto-rows: minmax(0, 1fr);
     grid-template-areas: 
     "two one"
