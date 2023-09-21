@@ -1,6 +1,7 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { apiURL } from "../../Utils/apiURL";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const readAllCities = createAsyncThunk('readAllCities', async ()=>{
     try {
@@ -8,7 +9,8 @@ export const readAllCities = createAsyncThunk('readAllCities', async ()=>{
         return cities
     } catch (error) {
         console.log(error);
-        return []
+        toast.error("ups, Sorry, couldn't connect to the server");
+        throw new Error(error)
     }
 })
 
@@ -24,7 +26,8 @@ export const readOneCity = createAsyncThunk('readOneCity', async (name)=>{
         return res.data.response
     } catch (error) {
         console.log(error);
-        return []
+        toast.error("ups, Sorry, couldn't connect to the server");
+        throw new Error(error)
     }
 })
 export const readItinerariesByCity = createAsyncThunk('readItinerariesByCity', async (city)=>{
@@ -33,6 +36,7 @@ export const readItinerariesByCity = createAsyncThunk('readItinerariesByCity', a
         return res.data.response
     } catch (error) {
         console.log(error);
-        return []
+        toast.error("ups, Sorry, couldn't connect to the server");
+        throw new Error(error)
     }
 })

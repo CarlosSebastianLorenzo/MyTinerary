@@ -139,6 +139,7 @@ const SignUp = () => {
                     </button>
                 </form>
                     <p className="link">Already have an account? <Link to='/register/signin' className="acent link">Sign In</Link></p>
+                    <p className="link">or <Link to='/' className="acent link">Continue</Link> without logging in</p>
             </section>
             <aside style={{minHeight: '10vh', height: 'fitContent'}}>
                 <img style={{maxWidth: '100%'}} src={girlMapWorld} alt="girl map of the world" />

@@ -28,6 +28,14 @@ const Details = () => {
         document.title = params.id + " - MyTinerary"
     },[])
 
+    if (infoCity == "loading") {
+        return (
+            <div className="details">
+                <span className="loader">Loading...</span>
+            </div>
+        )
+    }
+
     return (
         <div className="details">
             <div style={{backgroundImage: `url(${infoCity.photo})`}}>
@@ -50,6 +58,8 @@ const Details = () => {
                 {
                     Itineraries == '' ? 
                         <NoItinerariesFound/>
+                    : (Itineraries == "loading") ?
+                    <span className="loader">Loading...</span>
                     : 
                     Itineraries.map((itinerary, indexMap)=>{
                         return <Itinerary data={itinerary} key={indexMap}/>

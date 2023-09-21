@@ -42,6 +42,8 @@ const Cities = () => {
                         <img style={{maxWidth: '90vw', maxHeight:'55vh', objectFit: 'contain'}} src={girlwalking} alt="girl walking on forest" />
                     </aside>
                     </>
+                    : (cities == "loading") ?
+                    <span className="loader">Loading...</span>
                     :
                     cities.map((city, indexMap) => {
                     return <Link to={'/cities/'+city.city} key={indexMap}>

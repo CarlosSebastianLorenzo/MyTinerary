@@ -16,7 +16,7 @@ export default function Hero() {
     return (
         <main>
             <section>
-                <h1>Find <span className='acent'>your perfect </span> trip,</h1>
+                <h1>Find <span className='acent'>your perfect </span> trip</h1>
                 <h3>designed by insiders who know and love their cities!</h3>
                 <Link to='cities'>
                     <button>

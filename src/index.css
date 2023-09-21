@@ -855,6 +855,57 @@ div:has(.commentTextArea){
     width: 1.5em;
     height: 1.5em;
 }
+/*LOADER*/
+.loader {
+    margin-top: 5em;
+    scale: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+    width: 7.5em;
+    height: 8.75em;
+    background-image: radial-gradient(circle 1.875em, #fff 100%, transparent 0),
+    radial-gradient(circle 0.3125em, #fff 100%, transparent 0),
+    radial-gradient(circle 0.3125em, #fff 100%, transparent 0),
+    linear-gradient(#FFF 20px, transparent 0);
+    background-position: center 7.9375em , 5.875em 6.375em , 1em 1.125em, center 7.125em;
+    background-size: 3.75em 3.75em, 0.625em 0.625em , 0.625em 0.625em , 0.25em 0.875em;
+    background-repeat: no-repeat;
+    z-index: 10;
+    perspective: 31.25em;
+}
+.loader::before {
+    content: '';
+    position: absolute;
+    width: 6.25em;
+    height: 6.25em;
+    border-radius:50%;
+    border: 0.1875em solid #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%) rotate(-45deg);
+    border-right-color: transparent;
+    box-sizing: border-box;
+}
+.loader::after {
+    content: '';
+    position: absolute;
+    height: 5em;
+    width: 5em;
+    transform: translate(-50%, -55%) rotate(-45deg) rotateY(0deg) ;
+    left: 50%;
+    top: 50%;
+    box-sizing: border-box;
+    border: 0.4375em solid var(--primary-color);
+    border-radius:50%;
+    animation: rotate .5s linear infinite;
+}
+
+@keyframes rotate {
+    to{transform: translate(-50%, -55%) rotate(-45deg) rotateY(360deg)   }
+}
 
 /*FOOTER*/
 

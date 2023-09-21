@@ -17,6 +17,18 @@ export const readAllCitiesReducer = createReducer(initialState, (builder)=> {
                 filteredCities: action.payload
             }
         })
+        .addCase(readAllCities.pending, (store)=>{
+            return {
+                ...store,
+                filteredCities: "loading"
+            }
+        })
+        .addCase(readAllCities.rejected, (store)=>{
+            return {
+                ...store,
+                filteredCities: []
+            }
+        })
         .addCase(filterCities, (store,action)=>{
             const search = action.payload.toLowerCase().trim()
             const newFilteredCities = store.cities.filter(c => c.city.toLowerCase().trim().startsWith(search))
@@ -33,6 +45,18 @@ export const readOneCityReducer = createReducer(initialState, (builder)=> {
             const newCity = { ...store, city: action.payload}
             return newCity
         })
+        .addCase(readOneCity.pending, (store)=>{
+            return {
+                ...store,
+                city: "loading"
+            }
+        })
+        .addCase(readOneCity.rejected, (store)=>{
+            return {
+                ...store,
+                city: {}
+            }
+        })
 })
 
 export const readItinerariesByCityReducer = createReducer(initialState, (builder)=> {
@@ -40,5 +64,17 @@ export const readItinerariesByCityReducer = createReducer(initialState, (builder
         .addCase(readItinerariesByCity.fulfilled, (store,action)=>{
             const newItineraries = { ...store, itineraries: action.payload}
             return newItineraries
+        })
+        .addCase(readItinerariesByCity.pending, (store)=>{
+            return {
+                ...store,
+                itineraries: "loading"
+            }
+        })
+        .addCase(readItinerariesByCity.rejected, (store)=>{
+            return {
+                ...store,
+                itineraries: []
+            }
         })
 })
