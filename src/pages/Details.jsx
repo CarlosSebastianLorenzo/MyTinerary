@@ -30,9 +30,9 @@ const Details = () => {
 
     if (infoCity == "loading") {
         return (
-            <div className="details">
+            <main className="citiesMain">
                 <span className="loader">Loading...</span>
-            </div>
+            </main>
         )
     }
 
