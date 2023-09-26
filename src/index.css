@@ -827,6 +827,14 @@ a:has(.card):hover{
     align-items: flex-start;
     text-align: start;
     flex-direction: column;
+    width: 100%;
+    align-items: space-between;
+}
+.editable{
+    padding-right: 1em;
+    padding-left: 1em;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 div:has(.commentTextArea){
     position: relative;
